@@ -56,7 +56,11 @@ Click Start Server.
 Open a terminal in the project directory and run the script:
 
 ```bash
-python run_crisis_test.py
+Test/Dry-Run
+python .\llm-crisis-questions-test.py
+python .\llm-crisis-questions-test.py
+or (model name is only for the name of the result file)
+python .\llm-crisis-questions-test.py --model-name "smollm2-1.7b-instruct"
 ```
 
 #### Rename the Output
