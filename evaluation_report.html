@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrisisAI LLM Evaluation Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .details-pane { display: none; }
+        .details-row.active { display: table-row; }
+        .details-pane.active { display: block; }
+        .prose { max-width: 100%; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="w-full p-4 sm:p-6 lg:p-8">
+        <header class="mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-900">CrisisAI LLM Evaluation Report</h1>
+            <p class="mt-2 text-lg text-gray-600">Comparative analysis of smaller LLMs for crisis response advice.</p>
+            <p class="mt-1 text-sm text-gray-500">Evaluated at: 2025-10-09 14:24:25</p>
+        </header>
+
+        <section id="summary">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Performance Summary</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">DeepSeek-R1-0528-Qwen3-8B-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">Phi-3.5-mini-instruct-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">Phi-4-mini-reasoning-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">Phi-4-reasoning-plus-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">Qwen3-4B-Instruct-2507-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">Qwen3-4B-Thinking-2507-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">gemma-2-2b-it-Q5_K_S</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">gemma-3-12b-it-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">gemma-3n-E4B-it-Q4_K_M</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">qwen2.5-coder-1.5b-instruct-q8_0</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">smollm2-1.7b-instruct</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700">smollm2-360m-instruct-q8_0</h3>
+            <p class="text-3xl font-bold mt-2 text-yellow-800">
+                5.00
+            </p>
+            <p class="text-sm text-gray-500 mt-1">Average Score (1 questions)</p>
+        </div>
+        
+            </div>
+        </section>
+
+        <section id="detailed-report">
+            <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Natural Disasters</h2><h3 class="text-xl font-semibold text-gray-700 mt-6 mb-4">Bushfire/Wildfire</h3><div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200"><table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Question</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DeepSeek-R1-0528-Qwen3-8B-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phi-3.5-mini-instruct-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phi-4-mini-reasoning-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phi-4-reasoning-plus-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Qwen3-4B-Instruct-2507-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Qwen3-4B-Thinking-2507-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">gemma-2-2b-it-Q5_K_S</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">gemma-3-12b-it-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">gemma-3n-E4B-it-Q4_K_M</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">qwen2.5-coder-1.5b-instruct-q8_0</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">smollm2-1.7b-instruct</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">smollm2-360m-instruct-q8_0</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+            <tr><td class="px-6 py-4 align-top w-1/3"><div class="text-sm font-medium text-gray-900">There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div></td>
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m0')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m1')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m2')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m3')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m4')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m5')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m6')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m7')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m8')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m9')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m10')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('details-q0-m11')">
+                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full bg-yellow-100 text-yellow-800">
+                                5
+                            </span>
+                        </td>
+                        </tr><tr class="details-row hidden"><td colspan="13">
+                        <div id="details-q0-m0" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">DeepSeek-R1-0528-Qwen3-8B-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">DeepSeek-R1-0528-Qwen3-8B-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md"><think>
+Okay, so the user is describing an imminent fire hazard—sky is orange from smoke or flames—with immediate urgency ("what do I do right now?") and a split-second decision dilemma: "Should I leave or stay?" 
+
+First thought: This isn't just about information—it's panic-inducing. The sky being orange suggests either massive wildfire smoke or actual flames, both deadly if underestimated. User might be hyperventilating, so the response needs to be calm, direct, and actionable without fluff.
+
+Second layer: They're asking for a binary choice ("leave or stay") but fire emergencies rarely boil down to such oversimplification. The real need here is *not* just an answer, but a framework for decision-making that prioritizes survival over pride ("don't be afraid to leave"). 
+
+Breaking it down:
+- Immediate action must override hesitation: No staying to "gather valuables" or hoping the fire stops. The orange sky = danger zone.
+- Fire behavior is unpredictable (user might not know this), so we can't second-guess their situation—just provide universal truths.
+
+Key principles from training:
+1. **Evacuation protocol**: If there's any doubt about staying, leave. Smoke inhalation kills faster than burns in wildfires.
+2. **Safety over property**: User is under stress; they might be thinking "stay and protect home." This is dangerous misinformation—correct that gently.
+3. **Actionable steps**: Don't overwhelm with jargon. "Plan" → "Act" → "Stay safe" must feel immediate.
+
+Potential pitfalls:
+- User could be in a building (smoke detectors, exits) vs. outdoors (traveling on foot).
+- They might not have an evacuation plan or kit ready.
+- Could be experiencing heat exhaustion from rushing outside—hence the emphasis on hydration and rest later.
+
+Structure of reply:
+1. **Direct answer**: Leave immediately ("If there's a fire coming...").
+2. **Mitigate myths**: Explicitly state staying is dangerous ("Don't stay unless ordered by authorities").
+3. **Practical steps**: Break down what "leaving" looks like in different scenarios (building/foot travel).
+4. **Empathy check**: Acknowledge their fear to reduce cognitive load.
+
+Final note: If they're asking this during the fire, they don't need a deep dive—just clear marching orders. The follow-up question about smoke inhalation is crucial because that's often overlooked in panic.
+</think>
+Okay, I understand you're in a very urgent situation with a fire approaching and the sky appearing orange.
+
+**Right now, the priority is your safety.**
+
+You should **leave immediately** if there is any sign of danger or if an evacuation order has been issued. There isn't enough time to weigh pros and cons; immediate threats like wildfires demand action.
+
+*   **If you are in a building:** Leave using your normal exit route (if safe). Go directly outside – don't stop for anything.
+*   **If there is no safe structure nearby:** Head downwind or into the nearest low-lying area that isn't on fire, such as a ditch or culvert. This can help you avoid smoke and heat.
+
+**Do not stay unless explicitly ordered by local authorities**, especially if conditions are this severe with an orange sky visible – staying significantly increases your risk of exposure to deadly smoke (which is the main killer in wildfires), heat stroke, and direct harm from the fire itself.
+
+Once you're out and away from the immediate danger:
+
+*   **Follow any official instructions or warnings.** Listen carefully to emergency broadcasts.
+*   **Head downwind/upstream:** If possible, move away from the direction of the smoke/fire spread.
+*   **Stay informed:** Check updates if you have access to a phone later.
+
+Your safety is the most important thing here. Don't be afraid to leave – it's better than risking your life by staying behind. Are you near thick smoke? How are you planning on getting out or away from the fire?</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m1" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">Phi-3.5-mini-instruct-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Phi-3.5-mini-instruct-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">1. **Stay Calm:** Firstly, try to remain as calm as possible; panic can lead you to make poor decisions quickly.
+2. **Assess Your Situation Quickly:** Determine how close the fire is from your location and if it's moving towards you or not. If there’s immediate danger where you are, preparing to evacuate becomes urgent. However, here are steps for both scenarios:
+    - *If You Can Safely Evacuate*: 
+        a. **Call Emergency Services Immediately** – Dial the local emergency number without delay; they can guide on whether it's safe to evacuate and give you instructions tailored to your specific location.
+            i. If possible, share details such as what’s happening (the fire), where exactly you are located for a better response from authorities. 
+        b. **Leave the Building** – Use stairs instead of elevators; if it's safe and there isn’t too much smoke or heat near your exit route:
+            i. Touch doors with the back of your hand first to check they aren't hot before opening them, indicating fire on the other side. 
+        ii. Close all windows and doors as you leave but don't lock them – this helps keep ash out while helping rescuers find a way in if needed later. Follow any instructions given by emergency personnel or displayed signs when exiting buildings like 'Exit only'.  
+    - *If You Cannot Safely Evacuate*: 
+        a. **Seal Your Room** – Close all doors between you and the fire, use towels at windows for additional protection if feasible without exposure risk (always prioritize safety). Use heavy furniture or non-flammable barriers against door gaps; sealing cracks underneath your door can also prevent smoke from entering.
+        b. **Signal Your Location**: If you have a flashlight, use it to signal for help through the window by creating an SOS (three short flashes followed by three long ones). Do not light matches or candles as they pose additional fire risk – instead opt for emergency whistle if available and make sure there's something outside that can be seen from a distance.
+        c. **Stay Low**: Stay in the lowest part of your room, away from smoke since it rises; cover yourself with damp cloth to avoid breathing too much ash or soot particles which may cause health issues later on if not properly handled post-evacuation by professionals.
+3. **Avoid Movement During Fire**: If you're caught in the fire, do NOT try and move around as this could lead you into a more dangerous situation like falling debris or trapped pathways due to smoke/heat accumulation; stay where it’s safest until help arrives.
+4. **Post-Fire**: After ensuring your immediate safety (and if possible, evacuating), avoid re-entering the building without professional clearance as there could be hidden dangers like electrical problems or weakened structures from heat exposure which professionals are trained to detect and repair safely using appropriate protective gear.
+5. **Myth Correction**: Remember not to underestimate a fire – even if it appears small, fires can grow quickly due to winds spreading flames (especially in dry conditions) or materials catching on fire nearby; always prioritize immediate safety and evacuation when possible over trying DIY solutions like extinguishing the blaze yourself.</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m2" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">Phi-4-mini-reasoning-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Phi-4-mini-reasoning-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md"><think>
+Okay, so there's a huge fire coming towards me, and the sky is turning orange. The user is stressed and has no special training. They need clear, step-by-step instructions right now. First, I should prioritize their safety above everything else.
+
+Leaving might be an option if there’s enough time to evacuate safely. But they need to assess the situation quickly. Staying put could be dangerous too if the fire is imminent. Let me think about first aid and evacuation procedures.
+
+First, check surroundings continuously. Are exits visible? If yes, leave immediately through a pre-determined escape plan, avoiding doors as smoke enters rooms. If trapped, seal breathing hazards: close doors, turn off vents to prevent smoke entry. Stay low under desks if structural integrity is uncertain. Cover windows with damp clothes to smother flames.
+
+The orange sky indicates high heat or fire nearby, so danger is real and time-sensitive. Advise them to stay informed via weather apps or alerts but not rely on social media for updates. Safety first: evacuate if clear route; otherwise, proceed to a safe room, seal gaps, wait emergency signals. Post-fires, assist neighbors only if escape isn't possible.
+
+Mention common myths: don't fight fires unless trained, don’t open doors for smoke/heat, stay calm. Correct any misconceptions gently. Ensure they know to contact emergency services if rescued. Step-by-step: assess, evacuate or shelter, protect airway, proceed safely.
+</think>
+
+In a situation with an approaching fire and orange sky (signaling extreme danger), prioritize the following steps immediately:  
+
+1. **Leave Safely**: If you can evacuate quickly through a pre-planned escape route (e.g., front door, balcony) and away from danger, do so now. Close doors behind you to block smoke entry. Avoid elevators. Alert neighbors quietly if safe to assist.  
+
+2. **Shelter in Place**:  
+   - If evacuation is impossible (e.g., fire inside your building, blocked exits), seal gaps around doors with wet cloths or towels. Get low to the floor and move away from smoke. Use bedding to block vents.  
+
+3. **Avoid Myths**:  
+   - **Do not call emergency services first**—they need you safe to help others.  
+   - **Do not fight fires** unless trained/ equipped with fire-extinguishing tools.  
+   - **Do not open doors** for smoke, heat, or rescue helicopters (doors may fail/seismic shifts).  
+
+4. **Stay Informed**: Listen for emergency instructions via weather radios or apps. If trapped under debris, signal for help using flashlights or phone lights.  
+
+5. **After Rescue**: Provide only basic details to responders (e.g., "My wife is diabetic") and avoid re-entering fire zones.  
+
+*If the fire is imminent in your location, evacuate immediately. If not yet arrived, shelter until it passes. Stay low, silent, and conserve energy. Your safety is paramount—panic wastes precious oxygen.*  
+
+**Emergency Contacts (if needed)**:  
+- Local fire department: 911  
+- Poison control: 772-2425 (NJ-specific)  
+- Medical aid: 211 (for non-emergencies).  
+
+*Note: Follow local evacuation orders—it may override general advice. Stay low and safe!*</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m3" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">Phi-4-reasoning-plus-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Phi-4-reasoning-plus-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started.</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m4" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">Qwen3-4B-Instruct-2507-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Qwen3-4B-Instruct-2507-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">**Right now — you must LEAVE.**
+
+If the sky is orange and there's a huge fire coming, that means **there is a wildfire or severe fire in progress**. You are in danger. Fires spread quickly, especially in dry or windy conditions, and can reach homes, roads, and even people in seconds.
+
+✅ **What you MUST do right now:**
+
+1. **Get out immediately** — Do not wait. If you're in a building, leave now. If you're outside, get to a safe location as fast as possible.
+2. **Evacuate in the opposite direction of the wind** — Fires move with the wind. Run *away* from the fire’s direction, not toward it.
+3. **Do not go back** — Never return to your home or vehicle once the fire has started.
+4. **Move to a safe place** — Go to a neighbor’s house, a shelter, or a designated evacuation center. If you don’t know where, call emergency services.
+5. **Call for help** — Use a phone (if you have one) to call **911** or your local emergency number. If you don’t have a phone, shout for help and alert others nearby.
+
+🚫 **Don’t do this:**
+- Don’t stay in your car or home — fire can reach vehicles and buildings in minutes.
+- Don’t try to save belongings — your life is more important.
+- Don’t follow rumors or false advice — only trust official alerts (like local emergency broadcasts or apps).
+
+💡 **Bonus tip:** If you're in a fire zone, look for official evacuation alerts on your phone or radio. Many areas have emergency alerts that go off when fires are near.
+
+👉 **Right now — RUN. Get to safety. Call 911. Stay safe.**
+
+You are not alone — help is coming. Just act fast. Your life matters. 💙</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m5" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">Qwen3-4B-Thinking-2507-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Qwen3-4B-Thinking-2507-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md"><think>
+Okay, the user is in a real emergency situation - a huge fire with orange skies. They're asking what to do right now, specifically whether to leave or stay. This is critical because fire safety depends on immediate actions. 
+
+First, I need to assess the urgency. The orange sky suggests a wildfire or severe fire, which means smoke and heat are present. The user's stress is obvious - they're probably panicking, so my response must be super clear and action-oriented without medical jargon. 
+
+Hmm... they mentioned "should I leave or stay?" That's a dangerous misconception. In fires, you never stay - that's the key point to correct gently but firmly. People often think "I'll just stay to save stuff" but that's deadly. Must emphasize leaving immediately. 
+
+Also, the orange sky means smoke inhalation risk is high. If they're indoors, they need to get out fast. But since they're asking about leaving/staying, I'll assume they're at home or in a safe location. 
+
+Important details to include: 
+- Don't wait for "perfect" conditions - fire moves fast 
+- How to leave safely (don't use elevators, close doors) 
+- Why staying is deadly (smoke fills air, heat, potential collapse) 
+- Post-escape steps (shelter in place if stuck, don't go back) 
+
+I should avoid any medical advice since they didn't ask for injuries. Focus purely on life-saving steps. Also no complex terms - "exit" instead of "egress", "run" not "evacuate" for simplicity. 
+
+Biggest risk here is the user might think "I'll just wait it out" because fires seem big. Must crush that myth immediately with "LEAVE NOW" in caps but gently. 
+
+*Checks mental list of fire protocols*: 
+- Alert others first (if possible) 
+- Don't use stairs if trapped? Wait no - for this scenario they're asking to leave, so probably not trapped. 
+- Smokey air = leave immediately, no delay 
+
+Ah! Critical point: If they're outside, they should stay there but move away from the fire. But since they said "sky is orange", likely they're in the danger zone. Better to say "get away from the fire" generally. 
+
+Final structure: 
+1. Immediate action: LEAVE NOW (bold) 
+2. Why staying is dangerous (short, no jargon) 
+3. Step-by-step escape (simple) 
+4. After leaving (shelter, don't go back) 
+
+No fluff. They need to act now - every second counts. Also must say "do not wait" because people often hesitate. 
+
+*Double-checking*: Is there any scenario where staying is safe? Only if they're far from fire and have escape route, but with orange sky it's active fire. So no - always leave. 
+
+Okay, drafting response...
+</think>
+
+**STOP. THINK. ACT NOW.**  
+This is a **life-threatening emergency** — **LEAVE IMMEDIATELY**. **Do not stay**. Staying in a fire or smoke zone is **dangerous and often fatal**. Here’s exactly what to do **right now**:
+
+---
+
+### 🔥 **Critical Actions (Do These in This Order)**:
+1. **GET OUT NOW** (No hesitation):  
+   - **Run to safety** — **do not wait** for "perfect" conditions. Fire spreads fast, and smoke fills the air in seconds.  
+   - **Do NOT** try to "save" belongings, pets, or anything else. Your life is the priority.  
+   - *Why staying is deadly*: Orange skies mean **heavy smoke and toxic air**. Staying traps you in smoke, heat, and fire. **This is not a "wait and see" situation** — fire moves faster than you think.
+
+2. **If you’re indoors**:  
+   - **Close doors/windows** to slow smoke (if you have time).  
+   - **Drop to your knees** and crawl to the nearest exit (smoke rises — it’s thicker near the ceiling).  
+   - **Leave immediately** — **do not** use elevators (they can trap you).
+
+3. **If you’re outside**:  
+   - **Run away from the fire** (not toward it).  
+   - **Avoid low-lying areas** (smoke and toxic gases settle there).  
+   - **Do NOT** go back to check on anything — **your safety is the only goal**.
+
+4. **Once you’re safe**:  
+   - **Shelter in place** (e.g., a sturdy building, open area away from the fire) — **do not** go back to your home.  
+   - **Call emergency services** (911 in the U.S., 112 in EU, etc.) **only after you’re safe**.  
+   - **Do NOT** re-enter the fire area — even if it seems "safe" later.
+
+---
+
+### ❌ **Myth vs. Reality** (Gently corrected):
+- **Myth**: *"I should stay to see if it gets smaller."*  
+  **Truth**: **Fire grows fast** — smoke fills air in minutes. **Staying = death risk**. **Leave immediately**.  
+
+- **Myth**: *"I can wait for the fire to pass."*  
+  **Truth**: **Fire doesn’t "pass"** — it spreads. **You have 60 seconds to act** before smoke becomes life-threatening. **Do not wait**.
+
+---
+
+### 🚨 **Remember**:  
+- **Your priority is YOU** — not belongings, pets, or "what if."  
+- **Every second counts** — **leave now**.  
+- **After you’re safe**, call emergency services and follow official instructions (e.g., local fire department).  
+
+**Do this now**: Run toward safety → get away from the fire → call for help if safe. **There is no "right" to stay** — **only the right to live**.  
+
+> 💡 **One last thing**: If you’re trapped and can’t leave, **close doors**, **cover your mouth with a wet cloth** (if you have one), and **wait for help** — **but this is NOT the first step**. **Your #1 action is to LEAVE IMMEDIATELY**.  
+
+**You’ve got this**. Stay calm, move fast, and you’ll be safe. 🌟  
+
+*If you need more help right now, call emergency services immediately.*</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m6" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">gemma-2-2b-it-Q5_K_S</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">gemma-2-2b-it-Q5_K_S's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">It sounds like you're in danger!  **Your safety is the absolute priority.** 
+
+Here's what to do RIGHT NOW:
+
+1. **Evacuate Immediately:** Do not try to fight the fire yourself. This situation requires professional help and evacuation is the safest course of action. Leave immediately if possible, heading away from the flames.
+2. **Listen for Instructions:** Seek out official warnings or instructions from local authorities (like sirens, emergency broadcasts) or firefighters. They will have the most up-to-date information on your safety. 
+3. **Get Low and Go!:** If you can't evacuate immediately, find a safe place to stay low to the ground. This helps minimize smoke inhalation. Stay indoors and get away from windows. 
+
+**Important:** Do NOT try to fight the fire yourself! It is extremely dangerous and could worsen the situation.  
+
+Remember, your safety is the most important thing right now. Focus on getting out of harm's way as quickly and safely as possible. If you can do so without putting yourself at risk, call 911 or your local emergency number for assistance.</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m7" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">gemma-3-12b-it-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">gemma-3-12b-it-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">Okay, this is incredibly scary. Let’s focus on what you need to do **immediately**. The orange sky means smoke and likely very dangerous conditions – we need to act fast. **Your safety is the absolute priority.**
+
+Here's a breakdown of what to do *right now*, broken down into steps. I will give advice for both leaving and staying, but **leaving is generally the safest option** if it’s possible.  I'll also address some common mistakes people make in situations like this.
+
+**1. Assess Your Immediate Surroundings & Safety:**
+
+*   **Are you in immediate danger?** Is fire *currently* impacting your location (flames, intense heat)? If so, **do not hesitate – grab what you can and run.**  Get away from the visible flames and smoke as quickly as possible, heading for an area with clearer air.
+*   **Is there a mandatory evacuation order?** Check local news broadcasts (if you have reception), emergency alerts on your phone, or official social media channels (police, fire department). **If there's an evacuation order, leave *immediately*.**
+
+**2. If You Can LEAVE – Evacuate Immediately:**
+
+*   **Grab Essentials Quickly:** Don’t waste time gathering a lot of belongings. Focus on:
+    *   **Medications:** Any prescription or over-the-counter medications you need.
+    *   **Important Documents:**  Wallet, ID, insurance papers (if easily accessible).
+    *   **Phone & Charger:** Vital for communication.
+    *   **Water:** A bottle or two of water per person.
+    *   **Warm Clothing/Masks:** Protect yourself from smoke and potential temperature changes.
+*   **Protect Yourself from Smoke:** This is *critical*. Smoke is incredibly dangerous.
+    *   **Wet a cloth (if possible) and cover your nose and mouth.** Any fabric will help, even if it's not perfect.
+    *   **Stay low to the ground.**  Smoke rises, so cleaner air will be closer to the floor.
+*   **Follow Evacuation Routes:** If there are designated routes, use them. Listen for instructions from emergency personnel.
+*   **Tell Others:** If you’re with others, make sure everyone is accounted for and moving together.
+*   **Don't Stop For Anything!**: Unless it’s a person in immediate danger, keep moving toward safety.
+
+**3. If You MUST STAY – Shelter-in-Place (This is riskier):**
+
+*(Only do this if evacuation isn't possible - for example, blocked roads or mobility issues)*
+
+*   **Find a Room with the Best Air Filtration:** Choose an interior room, ideally on the highest level of your building.
+*   **Seal the Room:**
+    *   **Close all windows and doors.**
+    *   **Use duct tape and plastic sheeting (if you have it) to seal around windows and door cracks.**  This is to minimize smoke entry. *If you don't have this, use towels or blankets.*
+*   **Ventilation:** Turn off fans and air conditioners that pull in outside air. If you have a portable air purifier with a HEPA filter, turn it on.
+*   **Protect Yourself from Smoke:** Same as for evacuation – wet cloths over nose and mouth, stay low to the ground.
+*   **Listen for Updates:** Keep a radio or phone (if possible) tuned to local news for updates and instructions.
+
+**Important Corrections & Things *Not* To Do:**
+
+*   **Myth: "I'll be fine if I just open a window."**  This is dangerous! Smoke will rush in, making the situation worse. Keep windows closed during an evacuation or shelter-in-place.
+*   **Myth: “The fire won’t reach me.”** Don't underestimate the speed and unpredictability of wildfires. Conditions can change rapidly.
+*   **Don't Waste Time:**  Hesitation is dangerous. Every minute counts.
+
+**4. After Taking Action:**
+
+*   **Notify Others:** Let someone know your location and status – a friend, family member, or emergency services if possible.
+*   **Conserve Resources:** If sheltering in place, ration food and water.
+
+
+
+**To help me give you more tailored advice, can you tell me:**
+
+*   Are you able to evacuate? (Yes/No)
+*   What kind of building are you in? (House, apartment, etc.)
+*   Do you have any mobility issues or anyone with you who needs assistance?</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m8" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">gemma-3n-E4B-it-Q4_K_M</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">gemma-3n-E4B-it-Q4_K_M's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">Okay, this is a very serious situation.  **Your safety is the absolute top priority right now.**  Don't panic, but act quickly and calmly. Here's what you need to do *immediately*:
+
+**1. Assess the Fire's Direction & Distance:**
+
+*   **Look at the wind.** Which way is the fire spreading? You want to move *against* the wind if possible.
+*   **How far away is the fire?** Is it very close, or further off? This will help you decide how quickly you need to act.
+
+**2.  Get to Safety - Your Immediate Options:**
+
+*   **If you can safely evacuate *now*:** Leave immediately. Don't waste time gathering belongings.  The fire is a serious threat and time is critical.
+*   **If evacuation is not immediately possible (fire is too close, blocked by obstacles):** You need to find a safe place *inside* your home **immediately**. 
+
+**3. If Staying Inside (Only if Evacuation is Impossible RIGHT NOW):**
+
+*   **Go to a room with a window.**  Ideally, a room on the lower floor.
+*   **Seal the room:** Use duct tape, towels, blankets, or anything you can find to seal cracks around doors and vents to prevent smoke from entering.  This is crucial!
+*   **Get low to the ground:** Smoke rises.  The air is cleaner closer to the floor. Crawl if necessary. 
+*   **Signal for help:** Open the window (if safe) and wave a bright cloth or flashlight to attract attention. Call emergency services (911 in the US, 112 in Europe, or your local emergency number).  Tell them your location and that you are trapped.
+
+**Important Things to Remember:**
+
+*   **Don't try to be a hero.** Your life is more important than possessions.
+*    **Don't open doors to check for fire or smoke.** If there's heat or smoke under the door, stay put. 
+*   **If your clothes catch fire: STOP, DROP, and ROLL.** Cover your face with your hands as you roll.
+
+**I need a little more information from you so I can give slightly more tailored advice.**  Could you tell me:
+
+*   **Are you inside a house, apartment building, or somewhere else?**
+*    **Do you have anyone with you (family, pets)?**
+*   **What is blocking your path to the outside?**
+
+
+
+**Disclaimer:** *I am an AI and cannot replace professional emergency services. This information is for guidance only and should not be considered a substitute for expert advice.  Your safety is paramount. If possible, call emergency services immediately.*</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m9" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">qwen2.5-coder-1.5b-instruct-q8_0</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">qwen2.5-coder-1.5b-instruct-q8_0's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">You should immediately evacuate! If there's no escape route, call 911 and try to find an exit way that is clear of smoke and debris.
+If you can't find a safe exit, try to find an area that is sheltered from the flames. If possible, cover your head with a towel or blanket to protect yourself from heat and smoke.
+If you're trapped in a building, don't panic! Stay calm and do not try to leave until it's safe to do so. If you have a flashlight or other light source, use it to signal for help.
+Remember, the most important thing is to stay safe.</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m10" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">smollm2-1.7b-instruct</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">smollm2-1.7b-instruct's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">I understand that you're in a state of panic due to the emergency situation. I'm here to provide you with accurate and safe advice as quickly as possible. 
+
+First, please ensure your safety above all else. However, if you must make an immediate decision about what to do, it's best to stay indoors. 
+
+Stay close to a window if you can safely open one, so you can get fresh air from outside the fire. If there is no safe way to exit your home, call emergency services immediately and ask them for instructions. 
+
+Do not attempt to go out of your house during this time unless it's absolutely necessary and you have been advised by a professional or local authorities that it is safe to do so.</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        
+                        <div id="details-q0-m11" class="details-pane hidden p-6 bg-gray-50 border-t border-gray-200">
+                            <h4 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">smollm2-360m-instruct-q8_0</span></h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">This is a mock ideal answer for the question: There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?</div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-600 mb-2">smollm2-360m-instruct-q8_0's Answer (Score 5)</h5>
+                                    <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">Right now, you should evacuate immediately to a safe distance from the fire. If you're alone and there are no others nearby who can provide assistance, it's best for everyone to get out of the area where the fire is happening. Stay in your building, not outside, and wait for emergency services or rescue teams to arrive and help you escape.</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-gray-600 mb-2">Justification for Score</h5>
+                                <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">Mock evaluation: placeholder justification.</div>
+                            </div>
+                        </div>
+                        </td></tr></tbody></table></div>
+        </section>
+    </div>
+
+    <script>
+        let currentlyOpenDetailsId = null;
+
+        function toggleDetails(detailsId) {
+            const detailsPane = document.getElementById(detailsId);
+            if (!detailsPane) return;
+
+            const parentRow = detailsPane.closest('.details-row');
+
+            // If we are clicking the same element that is already open, close it.
+            if (currentlyOpenDetailsId === detailsId) {
+                detailsPane.classList.remove('active');
+                parentRow.classList.remove('active');
+                currentlyOpenDetailsId = null;
+            } else {
+                // First, close any currently open details pane
+                if (currentlyOpenDetailsId) {
+                    const oldPane = document.getElementById(currentlyOpenDetailsId);
+                    if (oldPane) {
+                         oldPane.classList.remove('active');
+                         oldPane.closest('.details-row').classList.remove('active');
+                    }
+                }
+
+                // Now, open the new one
+                detailsPane.classList.add('active');
+                parentRow.classList.add('active');
+                currentlyOpenDetailsId = detailsId;
+            }
+        }
+    </script>
+</body>
+</html>

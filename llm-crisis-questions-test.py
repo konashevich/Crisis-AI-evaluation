@@ -128,6 +128,10 @@ def main(model_name: str | None = None):
     # Initialize a dictionary to store the results
     qa_results = {}
 
+    # Start timing the full run
+    run_start = datetime.now()
+    total_questions = 0
+
     # Iterate through each category, subcategory, and question
     for category, subcategories in categories.items():
         print(f"Processing Category: {category}")
@@ -146,10 +150,17 @@ def main(model_name: str | None = None):
                     "question": question,
                     "answer": answer
                 })
+                total_questions += 1
 
     # Determine output filename (use end time). If model_name is provided, name it '<model>_<YYYY-MM-DD_HH-MM-SS>.json'
     end_time = datetime.now()
     end_time_str = end_time.strftime("%Y-%m-%d_%H-%M-%S")
+
+    # Compute duration and pretty format MM:SS
+    duration_s = int((end_time - run_start).total_seconds())
+    mm = duration_s // 60
+    ss = duration_s % 60
+    duration_mmss = f"{mm:02d}:{ss:02d}"
 
     def _sanitize(name: str) -> str:
         # Replace any disallowed filename chars with '-'
@@ -170,8 +181,24 @@ def main(model_name: str | None = None):
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(qa_results, f, indent=2, ensure_ascii=False)
 
+    # Also save run info as a sidecar JSON (does not change main results schema)
+    runinfo = {
+        "model_name": model_name or "local-model",
+        "lm_studio_api_url": LM_STUDIO_API_URL,
+        "questions_count": total_questions,
+        "started_at": run_start.isoformat(timespec='seconds'),
+        "finished_at": end_time.isoformat(timespec='seconds'),
+        "duration_seconds": duration_s,
+        "duration_mmss": duration_mmss,
+        "results_file": output_path,
+    }
+    runinfo_path = os.path.splitext(output_path)[0] + "_runinfo.json"
+    with open(runinfo_path, 'w', encoding='utf-8') as f:
+        json.dump(runinfo, f, indent=2, ensure_ascii=False)
+
     print("\n--- Processing Complete ---")
     print(f"Successfully saved all questions and answers to: {output_path}")
+    print(f"Run time: {duration_mmss} ({duration_s} seconds) | Details: {runinfo_path}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="CrisisAI Q&A generator for LM Studio-served GGUF models")

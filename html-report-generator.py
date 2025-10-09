@@ -1,9 +1,23 @@
 import json
 import os
+import glob
+import re
 
 # --- Configuration ---
-INPUT_FILE = 'gemini_evaluation_report.json'
+# Prefer timestamped files like 'gemini_evaluation_report_YYYY-MM-DD_HH-MM-SS.json';
+# fallback to the legacy 'gemini_evaluation_report.json' if no timestamped file exists.
+LEGACY_INPUT_FILE = 'gemini_evaluation_report.json'
+TIMESTAMPED_PATTERN = 'gemini_evaluation_report_*.json'
 OUTPUT_FILE = 'evaluation_report.html'
+
+def _parse_score(score):
+    """Try to convert a score to float; return None if not possible."""
+    try:
+        if score is None:
+            return None
+        return float(score)
+    except (ValueError, TypeError):
+        return None
 
 def get_score_color(score):
     """Returns a Tailwind CSS color class based on the score."""
@@ -24,21 +38,27 @@ def generate_summary_cards(report_data):
     """Calculates average scores and generates HTML for summary cards."""
     model_scores = {}
     
-    # Aggregate scores for each model
+    # Aggregate scores for each model (skip Mistral-7B variants)
     for category in report_data.values():
         for subcategory in category.values():
             for entry in subcategory:
                 if 'gemini_evaluation' in entry and 'evaluations' in entry['gemini_evaluation']:
                     evaluations = entry['gemini_evaluation']['evaluations']
                     # Handle cases where Gemini might return a non-list
-                    if not isinstance(evaluations, list): continue
+                    if not isinstance(evaluations, list):
+                        continue
                     for eval_item in evaluations:
                         model_name = eval_item.get('model_name')
-                        score = eval_item.get('score')
-                        if model_name and score is not None:
+                        if not model_name:
+                            continue
+                        # Exclude Mistral-7B family (case-insensitive)
+                        if 'mistral-7b' in model_name.lower():
+                            continue
+                        score_num = _parse_score(eval_item.get('score'))
+                        if score_num is not None:
                             if model_name not in model_scores:
                                 model_scores[model_name] = []
-                            model_scores[model_name].append(score)
+                            model_scores[model_name].append(score_num)
 
     if not model_scores:
         return "<p>No model scores found to generate a summary.</p>"
@@ -46,7 +66,7 @@ def generate_summary_cards(report_data):
     # Calculate averages and create cards
     cards_html = ''
     for name, scores in sorted(model_scores.items()):
-        avg_score = sum(scores) / len(scores) if scores else 0
+        avg_score = (sum(scores) / len(scores)) if scores else 0
         card_color_class = get_score_color(avg_score).replace('100', '200') # Darker for card bg
         cards_html += f"""
         <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
@@ -107,9 +127,10 @@ def generate_report_body(report_data, model_names):
                     
                     if eval_item:
                         score = eval_item.get('score')
+                        score_num = _parse_score(score)
                         llm_answer = eval_item.get('llm_answer', 'Not provided.')
                         justification = eval_item.get('justification', 'Not provided.')
-                        color_class = get_score_color(score)
+                        color_class = get_score_color(score_num)
 
                         row_html += f"""
                         <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('{details_id}')">
@@ -148,13 +169,43 @@ def generate_report_body(report_data, model_names):
             body_html += "</tbody></table></div>" # Close table
     return body_html
 
+def _find_latest_report_file():
+    """Find the latest timestamped evaluation file, else return legacy if present, else None."""
+    files = glob.glob(TIMESTAMPED_PATTERN)
+    if files:
+        # Sort by timestamp parsed from filename (falls back to mtime)
+        def parse_ts(name):
+            m = re.search(r'(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2})', name)
+            if m:
+                try:
+                    from datetime import datetime
+                    return datetime.strptime(m.group(1), '%Y-%m-%d_%H-%M-%S')
+                except Exception:
+                    return None
+            return None
+        files.sort(key=lambda p: (parse_ts(os.path.basename(p)) or 0, os.path.getmtime(p)))
+        return files[-1]
+    if os.path.exists(LEGACY_INPUT_FILE):
+        return LEGACY_INPUT_FILE
+    return None
+
+def _extract_date_from_filename(path):
+    """Extract a human-friendly date string from a timestamped filename."""
+    base = os.path.basename(path)
+    m = re.search(r'(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})', base)
+    if not m:
+        return None
+    date_part, time_part = m.groups()
+    return f"{date_part} {time_part.replace('-', ':')}"
+
 def main():
     """Main function to generate the HTML report."""
-    if not os.path.exists(INPUT_FILE):
-        print(f"Error: Input file '{INPUT_FILE}' not found. Please run the evaluation script first.")
+    input_file = _find_latest_report_file()
+    if not input_file:
+        print(f"Error: No evaluation report found. Expected '{TIMESTAMPED_PATTERN}' or '{LEGACY_INPUT_FILE}'. Please run the evaluation script first.")
         return
 
-    with open(INPUT_FILE, 'r', encoding='utf-8') as f:
+    with open(input_file, 'r', encoding='utf-8') as f:
         report_data = json.load(f)
 
     # Discover all unique model names from the report
@@ -165,7 +216,7 @@ def main():
         for entry in subcategory
         if 'gemini_evaluation' in entry and 'evaluations' in entry['gemini_evaluation'] and isinstance(entry['gemini_evaluation'].get('evaluations'), list)
         for eval_item in entry['gemini_evaluation']['evaluations']
-        if 'model_name' in eval_item
+        if 'model_name' in eval_item and 'mistral-7b' not in eval_item['model_name'].lower()
     )))
 
     if not model_names:
@@ -174,6 +225,10 @@ def main():
     summary_cards_html = generate_summary_cards(report_data)
     report_body_html = generate_report_body(report_data, model_names)
 
+    # Derive a date label for the header from the filename, if possible
+    evaluated_at = _extract_date_from_filename(input_file) or 'Unknown date'
+
+    # Use a full-width container so the report stretches across the screen
     html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -190,10 +245,11 @@ def main():
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+    <div class="w-full p-4 sm:p-6 lg:p-8">
         <header class="mb-8">
             <h1 class="text-4xl font-extrabold text-gray-900">CrisisAI LLM Evaluation Report</h1>
             <p class="mt-2 text-lg text-gray-600">Comparative analysis of smaller LLMs for crisis response advice.</p>
+            <p class="mt-1 text-sm text-gray-500">Evaluated at: {evaluated_at}</p>
         </header>
 
         <section id="summary">
@@ -211,33 +267,33 @@ def main():
     <script>
         let currentlyOpenDetailsId = null;
 
-        function toggleDetails(detailsId) {
+        function toggleDetails(detailsId) {{
             const detailsPane = document.getElementById(detailsId);
             if (!detailsPane) return;
 
             const parentRow = detailsPane.closest('.details-row');
 
             // If we are clicking the same element that is already open, close it.
-            if (currentlyOpenDetailsId === detailsId) {
+            if (currentlyOpenDetailsId === detailsId) {{
                 detailsPane.classList.remove('active');
                 parentRow.classList.remove('active');
                 currentlyOpenDetailsId = null;
-            } else {
+            }} else {{
                 // First, close any currently open details pane
-                if (currentlyOpenDetailsId) {
+                if (currentlyOpenDetailsId) {{
                     const oldPane = document.getElementById(currentlyOpenDetailsId);
-                    if (oldPane) {
+                    if (oldPane) {{
                          oldPane.classList.remove('active');
                          oldPane.closest('.details-row').classList.remove('active');
-                    }
-                }
+                    }}
+                }}
 
                 // Now, open the new one
                 detailsPane.classList.add('active');
                 parentRow.classList.add('active');
                 currentlyOpenDetailsId = detailsId;
-            }
-        }
+            }}
+        }}
     </script>
 </body>
 </html>

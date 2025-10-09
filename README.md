@@ -60,7 +60,7 @@ Test/Dry-Run
 python .\llm-crisis-questions-test.py
 python .\llm-crisis-questions-test.py
 or (model name is only for the name of the result file)
-python .\llm-crisis-questions-test.py --model-name "smollm2-1.7b-instruct"
+python .\llm-crisis-questions-test.py --model-name "Mistral-7B-Instruct-v0.3.Q4_K_M"
 ```
 
 #### Rename the Output
