@@ -2,6 +2,8 @@ import json
 import os
 import glob
 import re
+import argparse
+from datetime import datetime
 
 # --- Configuration ---
 # Prefer timestamped files like 'gemini_evaluation_report_YYYY-MM-DD_HH-MM-SS.json';
@@ -63,18 +65,29 @@ def generate_summary_cards(report_data):
     if not model_scores:
         return "<p>No model scores found to generate a summary.</p>"
 
-    # Calculate averages and create cards
+    # Calculate averages and create cards sorted by average score (desc)
+    ranking = []  # list of tuples: (name, avg_score, count)
+    for name, scores in model_scores.items():
+        avg_score = (sum(scores) / len(scores)) if scores else 0.0
+        ranking.append((name, avg_score, len(scores)))
+
+    # Sort: best to worst by avg_score desc; tie-breaker by name asc
+    ranking.sort(key=lambda x: (-x[1], x[0].lower()))
+
     cards_html = ''
-    for name, scores in sorted(model_scores.items()):
-        avg_score = (sum(scores) / len(scores)) if scores else 0
-        card_color_class = get_score_color(avg_score).replace('100', '200') # Darker for card bg
+    for idx, (name, avg_score, count) in enumerate(ranking, start=1):
+        card_color_class = get_score_color(avg_score).replace('100', '200')  # Slightly darker bg
+        score_color = get_score_color(avg_score).split(' ')[1] if ' ' in get_score_color(avg_score) else 'text-gray-800'
         cards_html += f"""
         <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-            <h3 class="text-lg font-semibold text-gray-700">{name}</h3>
-            <p class="text-3xl font-bold mt-2 {get_score_color(avg_score).split(' ')[1]}">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-gray-700">{name}</h3>
+                <span class="text-xs text-gray-500">#{idx}</span>
+            </div>
+            <p class="text-3xl font-bold mt-2 {score_color}">
                 {avg_score:.2f}
             </p>
-            <p class="text-sm text-gray-500 mt-1">Average Score ({len(scores)} questions)</p>
+            <p class="text-sm text-gray-500 mt-1">Average Score ({count} questions)</p>
         </div>
         """
     return cards_html
@@ -193,14 +206,23 @@ def _extract_date_from_filename(path):
     """Extract a human-friendly date string from a timestamped filename."""
     base = os.path.basename(path)
     m = re.search(r'(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})', base)
-    if not m:
+    if m:
+        date_part, time_part = m.groups()
+        return f"{date_part} {time_part.replace('-', ':')}"
+    # Fallback: file modified time
+    try:
+        ts = datetime.fromtimestamp(os.path.getmtime(path))
+        return ts.strftime('%Y-%m-%d %H:%M:%S')
+    except Exception:
         return None
-    date_part, time_part = m.groups()
-    return f"{date_part} {time_part.replace('-', ':')}"
 
 def main():
     """Main function to generate the HTML report."""
-    input_file = _find_latest_report_file()
+    parser = argparse.ArgumentParser(description='Generate CrisisAI HTML report from evaluation JSON')
+    parser.add_argument('--input-file', '-i', dest='input_file', type=str, help='Path to a specific evaluation JSON to use')
+    args = parser.parse_args()
+
+    input_file = args.input_file if args.input_file and os.path.exists(args.input_file) else _find_latest_report_file()
     if not input_file:
         print(f"Error: No evaluation report found. Expected '{TIMESTAMPED_PATTERN}' or '{LEGACY_INPUT_FILE}'. Please run the evaluation script first.")
         return
@@ -227,6 +249,7 @@ def main():
 
     # Derive a date label for the header from the filename, if possible
     evaluated_at = _extract_date_from_filename(input_file) or 'Unknown date'
+    print(f"Generating HTML from: {input_file} (Evaluated at: {evaluated_at})")
 
     # Use a full-width container so the report stretches across the screen
     html_template = f"""
