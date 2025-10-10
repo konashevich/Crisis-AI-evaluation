@@ -63,9 +63,11 @@ def _clean_model_name_from_filename(filename: str) -> str:
 def aggregate_answers_by_question():
     """
     Finds all '*_results.json' files and aggregates the answers for each unique question.
-    Returns a dictionary where each key is a question.
+    Also loads model metadata from corresponding _runinfo.json files.
+    Returns a tuple: (aggregated_data, model_metadata)
     """
     aggregated_data = {}
+    model_metadata = {}  # Store metadata for each model
     input_files = glob.glob(INPUT_FILE_PATTERN)
     
     # Filter out _runinfo.json files
@@ -74,13 +76,31 @@ def aggregate_answers_by_question():
     if not input_files:
         print(f"Error: No input files found matching the pattern '{INPUT_FILE_PATTERN}'.")
         print("Please make sure your model result JSON files are in the 'test_results' folder.")
-        return None
+        return None, None
 
     print(f"Found {len(input_files)} model result files")
 
     for file_path in input_files:
         # Extract a readable model name from the filename
         model_name = _clean_model_name_from_filename(os.path.basename(file_path))
+        
+        # Try to load corresponding runinfo file for metadata
+        runinfo_path = file_path.rsplit('.json', 1)[0] + '_runinfo.json'
+        if os.path.exists(runinfo_path):
+            try:
+                with open(runinfo_path, 'r', encoding='utf-8') as rf:
+                    runinfo = json.load(rf)
+                    model_metadata[model_name] = {
+                        'model_size_gb': runinfo.get('model_size_gb'),
+                        'model_size_bytes': runinfo.get('model_size_bytes'),
+                        'model_quantization': runinfo.get('model_quantization'),
+                        'model_arch': runinfo.get('model_arch'),
+                        'model_publisher': runinfo.get('model_publisher'),
+                        'duration_seconds': runinfo.get('duration_seconds'),
+                        'questions_count': runinfo.get('questions_count')
+                    }
+            except Exception as e:
+                print(f"Warning: Could not load runinfo for {model_name}: {e}")
         
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -101,7 +121,7 @@ def aggregate_answers_by_question():
                         # Add the current model's answer
                         aggregated_data[question]['answers'][model_name] = answer
     
-    return aggregated_data
+    return aggregated_data, model_metadata
 
 
 def evaluate_with_gemini(question, model_answers):
@@ -262,7 +282,7 @@ def main():
         print("Please set your Gemini API key and run the script again, or use --aggregate-only/--mock-eval.")
         return
 
-    aggregated_data = aggregate_answers_by_question()
+    aggregated_data, model_metadata = aggregate_answers_by_question()
     if not aggregated_data:
         return
 
@@ -310,17 +330,33 @@ def main():
         }
         final_report[category][subcategory].append(report_entry)
 
-        # Save progress after each question
+        # Save progress after each question (with metadata)
+        progress_report = {
+            "model_metadata": model_metadata or {},
+            "evaluations": final_report
+        }
         with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(final_report, f, indent=2, ensure_ascii=False)
+            json.dump(progress_report, f, indent=2, ensure_ascii=False)
 
         # Respect --limit if provided (useful for small test runs)
         if args.limit is not None and (i + 1) >= args.limit:
             print(f"Reached limit of {args.limit} questions; stopping early.")
             break
 
+    # Add model metadata to the report
+    final_report_with_metadata = {
+        "model_metadata": model_metadata or {},
+        "evaluations": final_report
+    }
+
+    # Save final report with metadata
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(final_report_with_metadata, f, indent=2, ensure_ascii=False)
+
     print("\n--- Evaluation Complete ---")
     print(f"Full report saved to: {output_file}")
+    if model_metadata:
+        print(f"Model metadata included for {len(model_metadata)} models")
 
 
 if __name__ == "__main__":

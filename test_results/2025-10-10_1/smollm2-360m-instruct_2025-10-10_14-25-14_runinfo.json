@@ -1,0 +1,20 @@
+{
+  "model_name": "smollm2-360m-instruct",
+  "model_id": "smollm2-360m-instruct",
+  "model_publisher": "HuggingFaceTB",
+  "model_arch": "llama",
+  "model_quantization": "Q8_0",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\HuggingFaceTB\\SmolLM2-360M-Instruct-GGUF\\smollm2-360m-instruct-q8_0.gguf",
+  "model_size_bytes": 386404992,
+  "model_size_gb": 0.3598676919937134,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-10T14:23:32",
+  "finished_at": "2025-10-10T14:25:14",
+  "duration_seconds": 102,
+  "duration_mmss": "01:42",
+  "results_file": "test_results\\2025-10-10_1\\smollm2-360m-instruct_2025-10-10_14-25-14.json",
+  "model_info_from_response": null
+}

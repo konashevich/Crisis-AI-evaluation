@@ -291,9 +291,11 @@
         // Generate Summary Cards
         function generateSummaryCards(data) {
             const modelScores = {};
+            const evaluations = data.evaluations || data; // Support both new and old format
+            const metadata = data.model_metadata || {};
 
             // Aggregate scores
-            for (const category of Object.values(data)) {
+            for (const category of Object.values(evaluations)) {
                 for (const subcategory of Object.values(category)) {
                     for (const entry of subcategory) {
                         if (!entry.gemini_evaluation?.evaluations) continue;
@@ -318,7 +320,10 @@
             const ranking = Object.entries(modelScores).map(([name, scores]) => ({
                 name,
                 avgScore: scores.reduce((a, b) => a + b, 0) / scores.length,
-                count: scores.length
+                count: scores.length,
+                size_gb: metadata[name]?.model_size_gb || null,
+                quantization: metadata[name]?.model_quantization || null,
+                duration_seconds: metadata[name]?.duration_seconds || null
             }));
             ranking.sort((a, b) => b.avgScore - a.avgScore || a.name.localeCompare(b.name));
 
@@ -328,6 +333,22 @@
                 const colorClass = getScoreColor(model.avgScore);
                 const bgClass = colorClass.replace('100', '200');
                 const textClass = colorClass.split(' ')[1] || 'text-gray-800';
+                
+                let sizeInfo = '';
+                if (model.size_gb !== null) {
+                    sizeInfo = `<p class="text-xs text-gray-500 mt-1">${model.size_gb.toFixed(2)} GB`;
+                    if (model.quantization) {
+                        sizeInfo += ` (${model.quantization})`;
+                    }
+                    sizeInfo += `</p>`;
+                }
+                
+                let timeInfo = '';
+                if (model.duration_seconds !== null) {
+                    const minutes = Math.floor(model.duration_seconds / 60);
+                    const seconds = model.duration_seconds % 60;
+                    timeInfo = `<p class="text-xs text-gray-500">${minutes}:${seconds.toString().padStart(2, '0')} runtime</p>`;
+                }
 
                 return `
                     <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
@@ -339,6 +360,8 @@
                             ${model.avgScore.toFixed(2)}
                         </p>
                         <p class="text-sm text-gray-500 mt-1">Average Score (${model.count} questions)</p>
+                        ${sizeInfo}
+                        ${timeInfo}
                     </div>
                 `;
             }).join('');
@@ -347,12 +370,13 @@
         // Generate Detailed Report
         function generateDetailedReport(data) {
             const container = document.getElementById('detailed-report');
+            const evaluations = data.evaluations || data; // Support both new and old format
             let html = '';
             let questionIndex = 0;
 
             // Get all unique model names (excluding Mistral-7B)
             const modelNames = new Set();
-            for (const category of Object.values(data)) {
+            for (const category of Object.values(evaluations)) {
                 for (const subcategory of Object.values(category)) {
                     for (const entry of subcategory) {
                         if (!entry.gemini_evaluation?.evaluations) continue;
@@ -371,7 +395,7 @@
             const sortedModelNames = Array.from(modelNames).sort();
 
             // Generate tables for each category
-            for (const [catName, subcategories] of Object.entries(data)) {
+            for (const [catName, subcategories] of Object.entries(evaluations)) {
                 html += `<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">${escapeHtml(catName)}</h3>`;
 
                 for (const [subName, entries] of Object.entries(subcategories)) {

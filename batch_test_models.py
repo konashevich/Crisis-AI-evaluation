@@ -365,15 +365,20 @@ def run_batch_tests(selected_models: List[Dict[str, str]]):
         
         print_success(f"Model loaded: {model_display_name}")
         
+        # The main test script will now auto-detect the loaded model and get its size
+        # No need to pass model_name explicitly - it will detect from LM Studio API
+        
         # Run the test
         try:
             print(f"  → Running crisis questions test...")
             
-            # Call the main testing function with the model name and batch folder
+            # Call the main testing function - it will auto-detect the loaded model,
+            # get its size from disk, and save everything to the batch folder
+            # We still pass model_name as an override for the filename
             test_module.main(model_name=model_name, results_dir=batch_folder)
             
-            # Read the accurate timing from the runinfo file
-            # The runinfo file has timing that starts from first question, not from file loading
+            # Read the accurate timing and model info from the runinfo file
+            # The runinfo file now includes model_size_bytes, model_size_gb, etc.
             import glob
             runinfo_pattern = os.path.join(batch_folder, f"{model_name}_*_runinfo.json")
             runinfo_files = glob.glob(runinfo_pattern)
@@ -385,18 +390,26 @@ def run_batch_tests(selected_models: List[Dict[str, str]]):
                     runinfo = json.load(f)
                     duration = runinfo.get('duration_seconds', 0)
                     duration_mmss = runinfo.get('duration_mmss', '00:00')
+                    model_size_gb = runinfo.get('model_size_gb')
+                    model_size_bytes = runinfo.get('model_size_bytes')
+                    
+                    # Show model size if available
+                    if model_size_gb:
+                        print_info(f"Model size: {model_size_bytes:,} bytes ({model_size_gb:.2f} GB)")
             else:
                 # Fallback: calculate from our timer (less accurate)
                 model_end = datetime.now()
                 duration = (model_end - datetime.now()).total_seconds()  # This won't work well
                 duration_mmss = f"{int(duration//60):02d}:{int(duration%60):02d}"
+                model_size_gb = None
             
             print_success(f"Completed {model_name} in {duration:.0f} seconds ({duration_mmss})")
             
             results_summary.append({
                 "model": model_name,
                 "status": "SUCCESS",
-                "duration_seconds": duration
+                "duration_seconds": duration,
+                "model_size_gb": model_size_gb
             })
             
         except Exception as e:
@@ -430,7 +443,11 @@ def run_batch_tests(selected_models: List[Dict[str, str]]):
         model_info = result['model']
         if result['status'] == 'SUCCESS':
             duration = result.get('duration_seconds', 0)
-            model_info += f" ({duration:.0f}s)"
+            model_info += f" ({duration:.0f}s"
+            # Add model size if available
+            if result.get('model_size_gb'):
+                model_info += f", {result['model_size_gb']:.2f} GB"
+            model_info += ")"
         elif 'error' in result:
             model_info += f" - {result['error']}"
         
