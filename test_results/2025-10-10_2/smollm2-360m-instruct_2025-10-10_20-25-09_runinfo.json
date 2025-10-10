@@ -11,10 +11,10 @@
   "hf_size_gb": null,
   "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
   "questions_count": 32,
-  "started_at": "2025-10-10T14:23:32",
-  "finished_at": "2025-10-10T14:25:14",
-  "duration_seconds": 102,
-  "duration_mmss": "01:42",
-  "results_file": "test_results\\2025-10-10_1\\smollm2-360m-instruct_2025-10-10_14-25-14.json",
+  "started_at": "2025-10-10T20:23:27",
+  "finished_at": "2025-10-10T20:25:09",
+  "duration_seconds": 101,
+  "duration_mmss": "01:41",
+  "results_file": "test_results\\2025-10-10_2\\smollm2-360m-instruct_2025-10-10_20-25-09.json",
   "model_info_from_response": null
 }

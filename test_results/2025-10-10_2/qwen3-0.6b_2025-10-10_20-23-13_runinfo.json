@@ -1,0 +1,20 @@
+{
+  "model_name": "qwen3-0.6b",
+  "model_id": "qwen3-0.6b",
+  "model_publisher": "lmstudio-community",
+  "model_arch": "qwen3",
+  "model_quantization": "Q8_0",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-0.6B-GGUF\\Qwen3-0.6B-Q8_0.gguf",
+  "model_size_bytes": 804753568,
+  "model_size_gb": 0.7494851648807526,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-10T20:20:56",
+  "finished_at": "2025-10-10T20:23:13",
+  "duration_seconds": 136,
+  "duration_mmss": "02:16",
+  "results_file": "test_results\\2025-10-10_2\\qwen3-0.6b_2025-10-10_20-23-13.json",
+  "model_info_from_response": null
+}
