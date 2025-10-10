@@ -31,19 +31,44 @@ GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMI
 #   'smollm2-360m-instruct-q8_0_2025-10-08_09-08-02.json'
 #   'Qwen3-4B-Instruct-2507-Q4_K_M_2025-10-08_11-19-42.json'
 # Adjust the glob if you store results elsewhere.
-# Can be overridden by setting BATCH_FOLDER environment variable
-BATCH_FOLDER = os.getenv('BATCH_FOLDER')
-if BATCH_FOLDER:
-    INPUT_FILE_PATTERN = os.path.join(BATCH_FOLDER, '*.json')
-    print(f"Using batch folder from environment: {BATCH_FOLDER}")
-else:
-    INPUT_FILE_PATTERN = os.path.join('test_results', '*.json')
+# The default behavior is now to use the latest subfolder in test_results/
+# (e.g., test_results/2025-10-10_2/)
+# This can be overridden via --batch-folder argument or BATCH_FOLDER environment variable
 
 # Output filename prefix; we'll append a timestamp at runtime
 OUTPUT_FILE_PREFIX = 'gemini_evaluation_report'
 
 # Default output directory for evaluation results
 EVAL_RESULTS_DIR = 'eval_results'
+
+# Base directory for test results
+TEST_RESULTS_BASE_DIR = 'test_results'
+
+
+def get_latest_batch_folder():
+    """
+    Find the latest batch subfolder in test_results directory.
+    Returns the full path to the latest subfolder, or None if not found.
+    Batch folders are expected to be in format: YYYY-MM-DD_N
+    """
+    if not os.path.exists(TEST_RESULTS_BASE_DIR):
+        return None
+    
+    # Get all subdirectories in test_results
+    subdirs = []
+    for item in os.listdir(TEST_RESULTS_BASE_DIR):
+        item_path = os.path.join(TEST_RESULTS_BASE_DIR, item)
+        if os.path.isdir(item_path):
+            subdirs.append(item_path)
+    
+    if not subdirs:
+        return None
+    
+    # Sort by modification time (most recent first)
+    # This handles any naming convention
+    subdirs.sort(key=lambda x: os.path.getmtime(x), reverse=True)
+    
+    return subdirs[0]
 
 
 def _clean_model_name_from_filename(filename: str) -> str:
@@ -60,25 +85,30 @@ def _clean_model_name_from_filename(filename: str) -> str:
     return base
 
 
-def aggregate_answers_by_question():
+def aggregate_answers_by_question(batch_folder):
     """
     Finds all '*_results.json' files and aggregates the answers for each unique question.
     Also loads model metadata from corresponding _runinfo.json files.
+    
+    Args:
+        batch_folder: Path to the folder containing test results
+        
     Returns a tuple: (aggregated_data, model_metadata)
     """
     aggregated_data = {}
     model_metadata = {}  # Store metadata for each model
-    input_files = glob.glob(INPUT_FILE_PATTERN)
+    input_file_pattern = os.path.join(batch_folder, '*.json')
+    input_files = glob.glob(input_file_pattern)
     
     # Filter out _runinfo.json files
     input_files = [f for f in input_files if not f.endswith('_runinfo.json')]
 
     if not input_files:
-        print(f"Error: No input files found matching the pattern '{INPUT_FILE_PATTERN}'.")
-        print("Please make sure your model result JSON files are in the 'test_results' folder.")
+        print(f"Error: No input files found matching the pattern '{input_file_pattern}'.")
+        print(f"Please make sure your model result JSON files are in '{batch_folder}'.")
         return None, None
 
-    print(f"Found {len(input_files)} model result files")
+    print(f"Found {len(input_files)} model result files in {batch_folder}")
 
     for file_path in input_files:
         # Extract a readable model name from the filename
@@ -275,14 +305,39 @@ def main():
     parser.add_argument('--mock-eval', action='store_true', help='Run a local mock evaluator instead of calling Gemini.')
     parser.add_argument('--limit', type=int, default=None, help='Limit the number of questions to evaluate (useful for testing).')
     parser.add_argument('--output-dir', type=str, default=EVAL_RESULTS_DIR, help=f'Directory to write the evaluation report JSON into (default: {EVAL_RESULTS_DIR}).')
+    parser.add_argument('--batch-folder', type=str, default=None, help='Specific batch folder to evaluate. If not provided, uses the latest subfolder in test_results.')
     args = parser.parse_args()
+
+    # Determine which batch folder to use
+    batch_folder = args.batch_folder
+    
+    # Check environment variable if no argument provided
+    if not batch_folder:
+        batch_folder = os.getenv('BATCH_FOLDER')
+    
+    # If still no folder specified, find the latest one
+    if not batch_folder:
+        batch_folder = get_latest_batch_folder()
+        if batch_folder:
+            print(f"Using latest batch folder: {batch_folder}")
+        else:
+            # Fallback to old behavior - look directly in test_results
+            print("No batch subfolders found, looking in test_results directory...")
+            batch_folder = TEST_RESULTS_BASE_DIR
+    else:
+        print(f"Using specified batch folder: {batch_folder}")
+    
+    # Verify the folder exists
+    if not os.path.exists(batch_folder):
+        print(f"Error: Batch folder '{batch_folder}' does not exist.")
+        return
 
     if not GEMINI_API_KEY and not (args.aggregate_only or args.mock_eval):
         print("Error: GEMINI_API_KEY environment variable not set.")
         print("Please set your Gemini API key and run the script again, or use --aggregate-only/--mock-eval.")
         return
 
-    aggregated_data, model_metadata = aggregate_answers_by_question()
+    aggregated_data, model_metadata = aggregate_answers_by_question(batch_folder)
     if not aggregated_data:
         return
 

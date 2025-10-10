@@ -62,10 +62,104 @@ def print_warning(text: str):
     """Print warning message"""
     print(f"{Colors.WARNING}⚠ {text}{Colors.ENDC}")
 
+def build_model_path_map() -> Dict[str, str]:
+    """
+    Build a mapping of model aliases to their actual file paths.
+    Scans the LM Studio models directory to find all .gguf files.
+    Returns dict mapping alias -> full path for lms load.
+    """
+    import os
+    import pathlib
+    
+    models_dir = pathlib.Path(os.path.expanduser("~/.lmstudio/models"))
+    if not models_dir.exists():
+        # Try Windows path
+        models_dir = pathlib.Path(os.path.expanduser(r"~\.lmstudio\models"))
+    
+    if not models_dir.exists():
+        return {}
+    
+    path_map = {}
+    
+    # Scan all .gguf files
+    for gguf_file in models_dir.rglob("*.gguf"):
+        # Build the loadable path: publisher/repo/filename.gguf
+        relative_path = gguf_file.relative_to(models_dir)
+        parts = relative_path.parts
+        
+        if len(parts) >= 2:
+            # Create the full path for lms load
+            full_path = str(relative_path).replace('\\', '/')
+            
+            # Create alias from filename (lowercase, remove .gguf)
+            filename = parts[-1]
+            # Convert to alias format: remove .gguf, lowercase, replace _ with -
+            alias = filename.replace('.gguf', '').lower().replace('_', '-')
+            
+            # Also try with just the quantization as @suffix
+            # e.g., DeepSeek-R1-0528-Qwen3-8B-Q4_K_S.gguf -> deepseek-r1-0528-qwen3-8b@q4_k_s
+            # Matches: Q4_K_M, Q6_K, Q8_0, etc.
+            quant_match = re.search(r'-(Q\d+_(?:K(?:_[MS])?|\d))\.gguf$', filename, re.IGNORECASE)
+            if quant_match:
+                base_name = filename[:quant_match.start()].lower().replace('_', '-')
+                quant = quant_match.group(1).lower()  # Keep underscores in quantization
+                alias_with_quant = f"{base_name}@{quant}"
+                path_map[alias_with_quant] = full_path
+            
+            path_map[alias] = full_path
+    
+    return path_map
+
+def resolve_model_path(variant_name: str, path_map: Dict[str, str]) -> str:
+    """
+    Try to resolve a variant name to its actual file path.
+    Handles multiple naming patterns:
+    - google/gemma-3-12b@q6_k -> lmstudio-community/gemma-3-12b-it-GGUF/gemma-3-12b-it-Q6_K.gguf
+    - qwen/qwen3-4b-2507@q4_k_m -> lmstudio-community/Qwen3-4B-Instruct-2507-GGUF/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+    - deepseek-r1-0528-qwen3-8b@q4_k_s -> unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF/...
+    """
+    # Try exact match first
+    if variant_name in path_map:
+        return path_map[variant_name]
+    
+    # Extract base name and quantization
+    # Pattern: [publisher/]model-name@quantization
+    if '@' in variant_name:
+        parts = variant_name.split('@')
+        base_part = parts[0]  # e.g., "google/gemma-3-12b" or "qwen/qwen3-4b-2507"
+        quant_part = parts[1]  # e.g., "q6_k"
+        
+        # Remove publisher prefix if present
+        if '/' in base_part:
+            base_name = base_part.split('/')[-1]  # "gemma-3-12b" or "qwen3-4b-2507"
+        else:
+            base_name = base_part
+        
+        # Try variations in order of likelihood:
+        variations_to_try = [
+            f"{base_name}@{quant_part}",                    # exact: qwen3-4b-2507@q4_k_m
+            f"{base_name}-it@{quant_part}",                 # Google: gemma-3-12b-it@q6_k
+            f"{base_name}-instruct@{quant_part}",           # Qwen: qwen3-4b-2507-instruct@q4_k_m
+            f"{base_name.replace('-2507', '-instruct-2507')}@{quant_part}",  # qwen3-4b-instruct-2507@q4_k_m
+            f"{base_name.replace('-2507', '-thinking-2507')}@{quant_part}",  # qwen3-4b-thinking-2507@q4_k_m
+        ]
+        
+        for variation in variations_to_try:
+            if variation in path_map:
+                return path_map[variation]
+        
+        # Fuzzy matching - find any key that contains the base name and quant
+        for key, path in path_map.items():
+            if base_name in key and f"@{quant_part}" in key:
+                return path
+    
+    # No match found, return original
+    return variant_name
+
 def get_available_models() -> List[Dict[str, Any]]:
     """
     Fetch available models from LM Studio using CLI.
-    Returns a list of model dictionaries with 'id' and 'display_name' keys.
+    Returns a list of model dictionaries with 'id' (loadable path) and 'display_name' keys.
     Each quantization variant is listed as a separate model.
     """
     import subprocess
@@ -82,6 +176,11 @@ def get_available_models() -> List[Dict[str, Any]]:
         if result.returncode != 0:
             print_error("Failed to list models with 'lms ls'")
             return []
+        
+        # Build the alias -> path mapping
+        path_map = build_model_path_map()
+        if not path_map:
+            print_warning("Could not build model path map. Using aliases as-is.")
         
         models = []
         lines = result.stdout.split('\n')
@@ -120,16 +219,32 @@ def get_available_models() -> List[Dict[str, Any]]:
                             if variant_name_match:
                                 variant_name = variant_name_match.group(1).strip()
                                 if variant_name and not variant_name.startswith('You have'):
+                                    # For variant models, LM Studio CLI has a limitation:
+                                    # - Cannot load specific @quantization variants by name
+                                    # - Can only load the base model (loads default variant)
+                                    # - Full file paths don't work for lmstudio-community publisher
+                                    # 
+                                    # Solution: Use base name without @quant
+                                    # Note: This means all variants of same model will load the same quantization
+                                    # Users who need specific quant control should use standalone @quant models
+                                    if '@' in variant_name:
+                                        loadable_name = variant_name.split('@')[0]
+                                    else:
+                                        loadable_name = variant_name
+                                    
                                     models.append({
-                                        'id': variant_name,
-                                        'display_name': variant_name
+                                        'id': loadable_name,  # Base name for loading (loads default variant)
+                                        'display_name': variant_name,  # Full name for display
+                                        'is_variant': True  # Mark as variant for warning
                                     })
                 except Exception as e:
                     print_warning(f"Could not get variants for {base_model}: {e}")
                     # Fallback: add base model
+                    loadable_path = resolve_model_path(base_model, path_map)
                     models.append({
-                        'id': base_model,
-                        'display_name': base_model
+                        'id': loadable_path,
+                        'display_name': base_model,
+                        'is_variant': False
                     })
             else:
                 # Single model or model with @quantization suffix
@@ -137,9 +252,12 @@ def get_available_models() -> List[Dict[str, Any]]:
                 match = re.match(r'^([a-zA-Z0-9/_@.-]+)\s+', line)
                 if match:
                     model_name = match.group(1).strip()
+                    # Resolve to actual loadable path
+                    loadable_path = resolve_model_path(model_name, path_map)
                     models.append({
-                        'id': model_name,
-                        'display_name': model_name
+                        'id': loadable_path,
+                        'display_name': model_name,
+                        'is_variant': False
                     })
         
         return models
@@ -159,7 +277,7 @@ def load_model(model_path: str) -> bool:
     """
     import subprocess
     try:
-        print(f"    Loading via CLI: lms load '{model_path}' --yes")
+        print(f"    Loading via CLI: lms load \"{model_path}\" --yes")
         
         # Use PIPE with errors='ignore' to avoid Unicode decode issues
         process = subprocess.Popen(
@@ -195,7 +313,10 @@ def load_model(model_path: str) -> bool:
         else:
             print_error(f"CLI load failed with code {returncode}")
             if stderr:
-                print_error(f"Error: {stderr[:200]}")  # First 200 chars
+                # Show first few lines of error
+                error_lines = stderr.strip().split('\n')[:5]
+                for line in error_lines:
+                    print_error(f"  {line}")
             return False
             
     except FileNotFoundError:
@@ -384,6 +505,11 @@ def run_batch_tests(selected_models: List[Dict[str, str]]):
         
         print_header(f"[{idx}/{total_models}] Testing: {model_display_name}")
         print(f"Loading: {model_id}")
+        
+        # Warn if this is a variant model
+        if model.get('is_variant') and model_id != model_display_name:
+            print_warning(f"Note: This is a variant model. Loading base model '{model_id}'")
+            print_warning(f"      LM Studio will load the default quantization (not necessarily {model_display_name})")
         
         # Unload any previously loaded model
         print("  → Unloading previous model...")
