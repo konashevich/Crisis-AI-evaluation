@@ -66,6 +66,7 @@ def get_available_models() -> List[Dict[str, Any]]:
     """
     Fetch available models from LM Studio using CLI.
     Returns a list of model dictionaries with 'id' and 'display_name' keys.
+    Each quantization variant is listed as a separate model.
     """
     import subprocess
     import re
@@ -82,8 +83,6 @@ def get_available_models() -> List[Dict[str, Any]]:
             print_error("Failed to list models with 'lms ls'")
             return []
         
-        # Parse the output to extract model names
-        # Looking for lines like: "deepseek/deepseek-r1-0528-qwen3-8b (1 variant)"
         models = []
         lines = result.stdout.split('\n')
         
@@ -93,17 +92,55 @@ def get_available_models() -> List[Dict[str, Any]]:
             if not line or 'PARAMS' in line or 'EMBEDDING' in line or line.startswith('You have'):
                 continue
             
-            # Extract model name (everything before whitespace or params)
-            # Format: "model-name PARAMS ARCH SIZE" or "model-name (X variants) PARAMS ARCH SIZE"
-            match = re.match(r'^([a-zA-Z0-9/_.-]+(?:\s*\([^)]+\))?)\s+', line)
-            if match:
-                model_id = match.group(1).strip()
-                # Remove variant info for cleaner display
-                display_name = re.sub(r'\s*\(\d+\s+variants?\)', '', model_id)
-                models.append({
-                    'id': model_id,
-                    'display_name': display_name
-                })
+            # Check if this is a model with variants (e.g., "google/gemma-3-12b (3 variants)")
+            variant_match = re.match(r'^([a-zA-Z0-9/_.-]+)\s+\((\d+)\s+variants?\)', line)
+            if variant_match:
+                base_model = variant_match.group(1)
+                variant_count = int(variant_match.group(2))
+                
+                # For models with variants, we need to query for the actual variant names
+                # Use lms ls with the base model name to get variants
+                try:
+                    variant_result = subprocess.run(
+                        ["lms", "ls", base_model],
+                        capture_output=True,
+                        text=True,
+                        timeout=5
+                    )
+                    
+                    if variant_result.returncode == 0:
+                        # Parse variant output
+                        for variant_line in variant_result.stdout.split('\n'):
+                            variant_line = variant_line.strip()
+                            # Skip headers, empty lines, and the "Listing variants" line
+                            if not variant_line or 'PARAMS' in variant_line or variant_line.startswith('Listing'):
+                                continue
+                            # Extract model name (everything before whitespace)
+                            variant_name_match = re.match(r'^([a-zA-Z0-9/_@.-]+)\s+', variant_line)
+                            if variant_name_match:
+                                variant_name = variant_name_match.group(1).strip()
+                                if variant_name and not variant_name.startswith('You have'):
+                                    models.append({
+                                        'id': variant_name,
+                                        'display_name': variant_name
+                                    })
+                except Exception as e:
+                    print_warning(f"Could not get variants for {base_model}: {e}")
+                    # Fallback: add base model
+                    models.append({
+                        'id': base_model,
+                        'display_name': base_model
+                    })
+            else:
+                # Single model or model with @quantization suffix
+                # Extract model name (everything before whitespace)
+                match = re.match(r'^([a-zA-Z0-9/_@.-]+)\s+', line)
+                if match:
+                    model_name = match.group(1).strip()
+                    models.append({
+                        'id': model_name,
+                        'display_name': model_name
+                    })
         
         return models
         
