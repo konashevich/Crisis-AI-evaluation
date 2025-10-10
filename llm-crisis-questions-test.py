@@ -101,10 +101,17 @@ def run_test_prompt(prompt: str) -> int:
 
 
 # --- Main Script Logic ---
-def main(model_name: str | None = None):
+def main(model_name: str | None = None, results_dir: str | None = None):
     """
     Main function to load questions, query the LLM, and save the results.
+    
+    Args:
+        model_name: Name to use for the model in output files
+        results_dir: Directory to save results in (defaults to RESULTS_DIR)
     """
+    # Use provided results_dir or default
+    output_dir = results_dir if results_dir else RESULTS_DIR
+    
     # Resolve the input file (supports env var override and common variants)
     input_file = resolve_input_file()
     if not input_file:
@@ -128,8 +135,8 @@ def main(model_name: str | None = None):
     # Initialize a dictionary to store the results
     qa_results = {}
 
-    # Start timing the full run
-    run_start = datetime.now()
+    # We'll start timing when the FIRST question is actually sent
+    run_start = None
     total_questions = 0
 
     # Iterate through each category, subcategory, and question
@@ -141,6 +148,10 @@ def main(model_name: str | None = None):
             qa_results[category][subcategory] = []
             for i, question in enumerate(questions):
                 print(f"    - Sending question {i+1}/{len(questions)}: '{question[:70]}...'")
+                
+                # Start timing on the FIRST question only
+                if run_start is None:
+                    run_start = datetime.now()
                 
                 # Get the answer from the language model
                 answer = get_llm_response(question)
@@ -157,10 +168,15 @@ def main(model_name: str | None = None):
     end_time_str = end_time.strftime("%Y-%m-%d_%H-%M-%S")
 
     # Compute duration and pretty format MM:SS
-    duration_s = int((end_time - run_start).total_seconds())
-    mm = duration_s // 60
-    ss = duration_s % 60
-    duration_mmss = f"{mm:02d}:{ss:02d}"
+    # If run_start is None, it means no questions were processed
+    if run_start is not None:
+        duration_s = int((end_time - run_start).total_seconds())
+        mm = duration_s // 60
+        ss = duration_s % 60
+        duration_mmss = f"{mm:02d}:{ss:02d}"
+    else:
+        duration_s = 0
+        duration_mmss = "00:00"
 
     def _sanitize(name: str) -> str:
         # Replace any disallowed filename chars with '-'
@@ -174,8 +190,8 @@ def main(model_name: str | None = None):
         output_file = OUTPUT_FILE
 
     # Ensure results directory exists and save to it
-    os.makedirs(RESULTS_DIR, exist_ok=True)
-    output_path = os.path.join(RESULTS_DIR, output_file)
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, output_file)
 
     # Save the consolidated results to the output file
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -186,7 +202,7 @@ def main(model_name: str | None = None):
         "model_name": model_name or "local-model",
         "lm_studio_api_url": LM_STUDIO_API_URL,
         "questions_count": total_questions,
-        "started_at": run_start.isoformat(timespec='seconds'),
+        "started_at": run_start.isoformat(timespec='seconds') if run_start else None,
         "finished_at": end_time.isoformat(timespec='seconds'),
         "duration_seconds": duration_s,
         "duration_mmss": duration_mmss,

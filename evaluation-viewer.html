@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="vi                       </div>
+            </div>
+        </section>
+
+        <!-- Report Display Section -->v>
+        </section>
+
+        <!-- Report Display Section -->div>
+            </div>
+        </section>
+
+        <!-- Report Display Section -->ion>
+
+        <!-- Report Display Section -->ent="width=device-width, initial-scale=1.0">
+    <title>CrisisAI - LLM Evaluation Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .details-pane {
+            display: none;
+        }
+        .details-row.active {
+            display: table-row;
+        }
+        .details-pane.active {
+            display: block;
+        }
+        .prose {
+            max-width: 100%;
+        }
+        #loading-indicator {
+            display: none;
+        }
+        #loading-indicator.active {
+            display: flex;
+        }
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .tab-inactive {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        .tab-inactive:hover {
+            background-color: #e5e7eb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-2xl flex flex-col items-center">
+            <div class="spinner"></div>
+            <p class="mt-4 text-gray-700 font-semibold">Loading evaluation reports...</p>
+        </div>
+    </div>
+
+    <div class="w-full p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-900">CrisisAI LLM Evaluation Viewer</h1>
+            <p class="mt-2 text-lg text-gray-600">Interactive analysis of LLM performance in crisis scenarios</p>
+        </header>
+
+        <!-- Evaluation Reports Tabs -->
+        <section id="tabs-section" class="mb-8 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Evaluation Reports</h2>
+                <div id="tabs-container" class="flex flex-wrap gap-2 mb-6">
+                    <!-- Tabs will be inserted here -->
+                </div>
+                <div id="no-reports-message" class="text-center py-8 text-gray-500 hidden">
+                    <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <p class="text-lg font-medium">No evaluation reports found</p>
+                    <p class="text-sm">Run <code class="bg-gray-100 px-2 py-1 rounded">python eval_batch.py</code> to generate evaluation reports</p>
+                </div>
+            </div>
+        </section>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-600">
+                        <span class="font-semibold text-blue-600">Click to browse</span> or drag and drop
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1">JSON evaluation report files only</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Display Section (Initially Hidden) -->
+        <div id="report-section" class="hidden">
+            <!-- Performance Summary -->
+            <section id="summary-section" class="mb-8 fade-in">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Performance Summary</h2>
+                    <div id="summary-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Summary cards will be inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Report -->
+            <section id="detailed-report-section" class="fade-in">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Detailed Evaluation</h2>
+                    <div id="detailed-report">
+                        <!-- Detailed tables will be inserted here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Error Display -->
+        <div id="error-section" class="hidden">
+            <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-red-800 mb-2">Error Loading Report</h3>
+                <p id="error-message" class="text-red-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentlyOpenDetailsId = null;
+        let reportsData = {}; // Store all loaded reports
+        let currentReportId = null;
+
+        // Utility Functions
+        function parseScore(score) {
+            try {
+                if (score === null || score === undefined) return null;
+                return parseFloat(score);
+            } catch {
+                return null;
+            }
+        }
+
+        function getScoreColor(score) {
+            if (score === null) return "bg-gray-200 text-gray-700";
+            const s = parseInt(score);
+            if (s >= 8) return "bg-green-100 text-green-800";
+            if (s >= 5) return "bg-yellow-100 text-yellow-800";
+            return "bg-red-100 text-red-800";
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatTextWithBreaks(text) {
+            return escapeHtml(text).replace(/\n/g, '<br>');
+        }
+
+        // Parse filename to extract date and time
+        function parseReportDateTime(filename) {
+            // Expected format: gemini_evaluation_report_YYYY-MM-DD_HH-MM-SS.json
+            const match = filename.match(/gemini_evaluation_report_(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})\.json$/);
+            if (match) {
+                const [, date, time] = match;
+                return {
+                    date: date,
+                    time: time.replace(/-/g, ':'),
+                    full: `${date} ${time.replace(/-/g, ':')}`,
+                    timestamp: new Date(`${date}T${time.replace(/-/g, ':')}`).getTime()
+                };
+            }
+            return null;
+        }
+
+        // Load evaluation reports from eval_results folder
+        async function loadEvaluationReports() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            loadingIndicator.classList.add('active');
+
+            try {
+                // Try to load the specific file we know exists
+                const knownFile = 'gemini_evaluation_report_2025-10-10_12-31-53.json';
+                try {
+                    const response = await fetch(`eval_results/${knownFile}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        const dateTime = parseReportDateTime(knownFile);
+                        reports[knownFile] = {
+                            id: knownFile,
+                            data: data,
+                            dateTime: dateTime
+                        };
+                    }
+                } catch (error) {
+                    console.log(`Could not load ${knownFile}:`, error.message);
+                }
+
+                reportsData = reports;
+                createReportTabs(reports);
+
+            } catch (error) {
+                showError(`Error loading reports: ${error.message}`);
+            } finally {
+                loadingIndicator.classList.remove('active');
+            }
+        }
+
+        // Create tabs for evaluation reports
+        function createReportTabs(reports) {
+            const tabsContainer = document.getElementById('tabs-container');
+            const tabsSection = document.getElementById('tabs-section');
+            const noReportsMessage = document.getElementById('no-reports-message');
+
+            if (Object.keys(reports).length === 0) {
+                tabsSection.classList.remove('hidden');
+                noReportsMessage.classList.remove('hidden');
+                return;
+            }
+
+            noReportsMessage.classList.add('hidden');
+            tabsSection.classList.remove('hidden');
+
+            // Sort reports by timestamp (newest first)
+            const sortedReports = Object.entries(reports)
+                .filter(([, data]) => data.dateTime)
+                .sort(([, a], [, b]) => b.dateTime.timestamp - a.dateTime.timestamp);
+
+            tabsContainer.innerHTML = '';
+
+            sortedReports.forEach(([reportId, reportData], index) => {
+                const tab = document.createElement('button');
+                tab.className = `px-4 py-2 rounded-lg font-medium transition-colors ${
+                    index === 0 ? 'tab-active' : 'tab-inactive'
+                }`;
+                tab.innerHTML = `
+                    <div class="text-sm">${reportData.dateTime.date}</div>
+                    <div class="text-xs opacity-75">${reportData.dateTime.time}</div>
+                `;
+                tab.onclick = () => selectReport(reportId);
+                tabsContainer.appendChild(tab);
+
+                // Auto-select first report
+                if (index === 0) {
+                    selectReport(reportId);
+                }
+            });
+        }
+
+        // Select and display a report
+        function selectReport(reportId) {
+            // Update tab styling
+            const tabs = document.querySelectorAll('#tabs-container button');
+            tabs.forEach((tab, index) => {
+                if (reportsData[Object.keys(reportsData)[index]]?.id === reportId) {
+                    tab.classList.remove('tab-inactive');
+                    tab.classList.add('tab-active');
+                } else {
+                    tab.classList.remove('tab-active');
+                    tab.classList.add('tab-inactive');
+                }
+            });
+
+            // Display the report
+            const reportData = reportsData[reportId];
+            if (reportData) {
+                displayReport(reportData.data);
+                currentReportId = reportId;
+            }
+        }
+
+        // Generate Summary Cards
+        function generateSummaryCards(data) {
+            const modelScores = {};
+
+            // Aggregate scores
+            for (const category of Object.values(data)) {
+                for (const subcategory of Object.values(category)) {
+                    for (const entry of subcategory) {
+                        if (!entry.gemini_evaluation?.evaluations) continue;
+                        const evaluations = entry.gemini_evaluation.evaluations;
+                        if (!Array.isArray(evaluations)) continue;
+
+                        for (const evalItem of evaluations) {
+                            const modelName = evalItem.model_name;
+                            if (!modelName || modelName.toLowerCase().includes('mistral-7b')) continue;
+
+                            const score = parseScore(evalItem.score);
+                            if (score !== null) {
+                                if (!modelScores[modelName]) modelScores[modelName] = [];
+                                modelScores[modelName].push(score);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Calculate averages and sort
+            const ranking = Object.entries(modelScores).map(([name, scores]) => ({
+                name,
+                avgScore: scores.reduce((a, b) => a + b, 0) / scores.length,
+                count: scores.length
+            }));
+            ranking.sort((a, b) => b.avgScore - a.avgScore || a.name.localeCompare(b.name));
+
+            // Generate HTML
+            const container = document.getElementById('summary-cards');
+            container.innerHTML = ranking.map((model, idx) => {
+                const colorClass = getScoreColor(model.avgScore);
+                const bgClass = colorClass.replace('100', '200');
+                const textClass = colorClass.split(' ')[1] || 'text-gray-800';
+
+                return `
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-gray-700">${escapeHtml(model.name)}</h3>
+                            <span class="text-xs text-gray-500">#${idx + 1}</span>
+                        </div>
+                        <p class="text-3xl font-bold mt-2 ${textClass}">
+                            ${model.avgScore.toFixed(2)}
+                        </p>
+                        <p class="text-sm text-gray-500 mt-1">Average Score (${model.count} questions)</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Generate Detailed Report
+        function generateDetailedReport(data) {
+            const container = document.getElementById('detailed-report');
+            let html = '';
+            let questionIndex = 0;
+
+            // Get all unique model names (excluding Mistral-7B)
+            const modelNames = new Set();
+            for (const category of Object.values(data)) {
+                for (const subcategory of Object.values(category)) {
+                    for (const entry of subcategory) {
+                        if (!entry.gemini_evaluation?.evaluations) continue;
+                        const evaluations = entry.gemini_evaluation.evaluations;
+                        if (!Array.isArray(evaluations)) continue;
+
+                        for (const evalItem of evaluations) {
+                            const modelName = evalItem.model_name;
+                            if (modelName && !modelName.toLowerCase().includes('mistral-7b')) {
+                                modelNames.add(modelName);
+                            }
+                        }
+                    }
+                }
+            }
+            const sortedModelNames = Array.from(modelNames).sort();
+
+            // Generate tables for each category
+            for (const [catName, subcategories] of Object.entries(data)) {
+                html += `<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">${escapeHtml(catName)}</h3>`;
+
+                for (const [subName, entries] of Object.entries(subcategories)) {
+                    html += `<h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">${escapeHtml(subName)}</h4>`;
+
+                    // Start table
+                    html += `
+                        <div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200 mb-6">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Question</th>
+                                        ${sortedModelNames.map(name =>
+                                            `<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">${escapeHtml(name)}</th>`
+                                        ).join('')}
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                    `;
+
+                    // Generate rows
+                    for (const entry of entries) {
+                        const question = entry.question || 'N/A';
+                        const evalData = entry.gemini_evaluation || {};
+                        const evaluations = Array.isArray(evalData.evaluations) ? evalData.evaluations : [];
+                        const geminiAnswer = evalData.gemini_ideal_answer || 'Not provided.';
+
+                        // Create evaluation map
+                        const evalMap = {};
+                        for (const evalItem of evaluations) {
+                            if (evalItem.model_name) {
+                                evalMap[evalItem.model_name] = evalItem;
+                            }
+                        }
+
+                        html += `<tr><td class="px-6 py-4 align-top"><div class="text-sm font-medium text-gray-900">${escapeHtml(question)}</div></td>`;
+
+                        let detailsHtml = '';
+                        sortedModelNames.forEach((modelName, idx) => {
+                            const evalItem = evalMap[modelName];
+                            const detailsId = `details-q${questionIndex}-m${idx}`;
+
+                            if (evalItem) {
+                                const score = evalItem.score;
+                                const scoreNum = parseScore(score);
+                                const llmAnswer = evalItem.llm_answer || 'Not provided.';
+                                const justification = evalItem.justification || 'Not provided.';
+                                const colorClass = getScoreColor(scoreNum);
+
+                                html += `
+                                    <td class="px-6 py-4 whitespace-nowrap align-top text-center cursor-pointer hover:bg-gray-50" onclick="toggleDetails('${detailsId}')">
+                                        <span class="px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full ${colorClass}">
+                                            ${score !== null && score !== undefined ? score : 'N/A'}
+                                        </span>
+                                    </td>
+                                `;
+
+                                detailsHtml += `
+                                    <div id="${detailsId}" class="details-pane p-6 bg-gray-50 border-t border-gray-200">
+                                        <h5 class="font-bold text-md text-gray-800 mb-4">Evaluation Details for <span class="text-blue-600">${escapeHtml(modelName)}</span></h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <h6 class="font-semibold text-gray-600 mb-2">Gemini's Ideal Answer (Score 10)</h6>
+                                                <div class="prose prose-sm max-w-none p-4 bg-green-50 border border-green-200 rounded-md">${formatTextWithBreaks(geminiAnswer)}</div>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-semibold text-gray-600 mb-2">${escapeHtml(modelName)}'s Answer (Score ${score})</h6>
+                                                <div class="prose prose-sm max-w-none p-4 bg-white border border-gray-200 rounded-md">${formatTextWithBreaks(llmAnswer)}</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h6 class="font-semibold text-gray-600 mb-2">Justification for Score</h6>
+                                            <div class="prose prose-sm max-w-none p-4 bg-yellow-50 border border-yellow-200 rounded-md">${formatTextWithBreaks(justification)}</div>
+                                        </div>
+                                    </div>
+                                `;
+                            } else {
+                                html += '<td class="px-6 py-4 whitespace-nowrap align-top text-center text-sm text-gray-400">Missing</td>';
+                            }
+                        });
+
+                        html += `</tr><tr class="details-row"><td colspan="${sortedModelNames.length + 1}">${detailsHtml}</td></tr>`;
+                        questionIndex++;
+                    }
+
+                    html += '</tbody></table></div>';
+                }
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Display a report
+        function displayReport(data) {
+            generateSummaryCards(data);
+            generateDetailedReport(data);
+            document.getElementById('report-section').classList.remove('hidden');
+            document.getElementById('error-section').classList.add('hidden');
+        }
+
+        // Toggle Details Panel
+        function toggleDetails(detailsId) {
+            const detailsPane = document.getElementById(detailsId);
+            if (!detailsPane) return;
+
+            const parentRow = detailsPane.closest('.details-row');
+
+            if (currentlyOpenDetailsId === detailsId) {
+                detailsPane.classList.remove('active');
+                parentRow.classList.remove('active');
+                currentlyOpenDetailsId = null;
+            } else {
+                if (currentlyOpenDetailsId) {
+                    const oldPane = document.getElementById(currentlyOpenDetailsId);
+                    if (oldPane) {
+                        oldPane.classList.remove('active');
+                        oldPane.closest('.details-row').classList.remove('active');
+                    }
+                }
+                detailsPane.classList.add('active');
+                parentRow.classList.add('active');
+                currentlyOpenDetailsId = detailsId;
+            }
+        }
+
+        // Show Error
+        function showError(message) {
+            document.getElementById('error-message').textContent = message;
+            document.getElementById('error-section').classList.remove('hidden');
+            document.getElementById('report-section').classList.add('hidden');
+            document.getElementById('tabs-section').classList.add('hidden');
+            document.getElementById('loading-indicator').classList.remove('active');
+        }
+
+        // Initialize - Load evaluation reports automatically
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEvaluationReports();
+        });
+    </script>
+</body>
+</html>

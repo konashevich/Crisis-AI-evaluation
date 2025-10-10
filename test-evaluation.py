@@ -31,10 +31,19 @@ GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMI
 #   'smollm2-360m-instruct-q8_0_2025-10-08_09-08-02.json'
 #   'Qwen3-4B-Instruct-2507-Q4_K_M_2025-10-08_11-19-42.json'
 # Adjust the glob if you store results elsewhere.
-INPUT_FILE_PATTERN = os.path.join('test_results', '*.json')
+# Can be overridden by setting BATCH_FOLDER environment variable
+BATCH_FOLDER = os.getenv('BATCH_FOLDER')
+if BATCH_FOLDER:
+    INPUT_FILE_PATTERN = os.path.join(BATCH_FOLDER, '*.json')
+    print(f"Using batch folder from environment: {BATCH_FOLDER}")
+else:
+    INPUT_FILE_PATTERN = os.path.join('test_results', '*.json')
 
 # Output filename prefix; we'll append a timestamp at runtime
 OUTPUT_FILE_PREFIX = 'gemini_evaluation_report'
+
+# Default output directory for evaluation results
+EVAL_RESULTS_DIR = 'eval_results'
 
 
 def _clean_model_name_from_filename(filename: str) -> str:
@@ -58,13 +67,16 @@ def aggregate_answers_by_question():
     """
     aggregated_data = {}
     input_files = glob.glob(INPUT_FILE_PATTERN)
+    
+    # Filter out _runinfo.json files
+    input_files = [f for f in input_files if not f.endswith('_runinfo.json')]
 
     if not input_files:
         print(f"Error: No input files found matching the pattern '{INPUT_FILE_PATTERN}'.")
         print("Please make sure your model result JSON files are in the 'test_results' folder.")
         return None
 
-    print(f"Found {len(input_files)} model result files: {', '.join(input_files)}")
+    print(f"Found {len(input_files)} model result files")
 
     for file_path in input_files:
         # Extract a readable model name from the filename
@@ -242,7 +254,7 @@ def main():
     parser.add_argument('--aggregate-only', action='store_true', help='Only aggregate answers and save to disk.')
     parser.add_argument('--mock-eval', action='store_true', help='Run a local mock evaluator instead of calling Gemini.')
     parser.add_argument('--limit', type=int, default=None, help='Limit the number of questions to evaluate (useful for testing).')
-    parser.add_argument('--output-dir', type=str, default='.', help='Directory to write the evaluation report JSON into (default: current).')
+    parser.add_argument('--output-dir', type=str, default=EVAL_RESULTS_DIR, help=f'Directory to write the evaluation report JSON into (default: {EVAL_RESULTS_DIR}).')
     args = parser.parse_args()
 
     if not GEMINI_API_KEY and not (args.aggregate_only or args.mock_eval):
@@ -265,6 +277,9 @@ def main():
     # Compute timestamped output file name
     ts = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     output_file = os.path.join(args.output_dir, f"{OUTPUT_FILE_PREFIX}_{ts}.json")
+    
+    # Ensure output directory exists
+    os.makedirs(args.output_dir, exist_ok=True)
 
     final_report = {}
     total_questions = len(aggregated_data)

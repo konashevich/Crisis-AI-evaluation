@@ -1,0 +1,22 @@
+# List of models to test - one per line
+# Lines starting with # are comments
+
+# Small models (fast)
+smollm2-360m-instruct-q8_0
+smollm2-1.7b-instruct
+
+# Medium models
+qwen2.5-coder-1.5b-instruct-q8_0
+Qwen3-4B-Instruct-2507-Q4_K_M
+gemma-2-2b-it-Q5_K_S
+
+# Larger models
+Mistral-7B-Instruct-v0.3.Q4_K_M
+Phi-4-mini-reasoning-Q4_K_M
+gemma-3-12b-it-Q4_K_M
+
+# Reasoning models
+Qwen3-4B-Thinking-2507-Q4_K_M
+Phi-4-reasoning-plus-Q4_K_M
+DeepSeek-R1-0528-Qwen3-8B-Q4_K_M
+ 
