@@ -63,6 +63,26 @@ def find_model_file_size(model_id, publisher=None):
         Path("C:/Users") / os.environ.get("USERNAME", "") / ".cache" / "lm-studio" / "models",
     ]
     
+    # Extract model name parts for better matching
+    # Handle formats like: "google/gemma-3-12b", "gemma-3-12b@q8_0", etc.
+    model_parts = []
+    
+    # Remove publisher prefix if present
+    if '/' in model_id:
+        publisher_part, model_part = model_id.split('/', 1)
+        model_parts.append(model_part.lower())
+        # Also try without publisher
+        model_parts.append(model_id.lower())
+    else:
+        model_parts.append(model_id.lower())
+    
+    # Remove @quantization suffix if present
+    for part in list(model_parts):
+        if '@' in part:
+            base_name = part.split('@')[0]
+            if base_name not in model_parts:
+                model_parts.append(base_name)
+    
     # Try to find files matching the model name
     for base_path in possible_paths:
         if not base_path.exists():
@@ -71,10 +91,25 @@ def find_model_file_size(model_id, publisher=None):
         # Search recursively for .gguf files
         try:
             for gguf_file in base_path.rglob("*.gguf"):
-                # Check if the model_id is part of the file path
-                if model_id.lower().replace('/', '-').replace('@', '-') in str(gguf_file).lower():
-                    size_bytes = gguf_file.stat().st_size
-                    return str(gguf_file), size_bytes
+                gguf_str = str(gguf_file).lower()
+                gguf_name = gguf_file.name.lower()
+                
+                # Try matching against various model name patterns
+                for model_part in model_parts:
+                    # Check if model name is in the file path or filename
+                    clean_model = model_part.replace('/', '-').replace('@', '-').replace('_', '-')
+                    clean_filename = gguf_name.replace('_', '-').replace('.gguf', '')
+                    
+                    # Match if the core model name is in the filename
+                    if clean_model in clean_filename or clean_model in gguf_str.replace('\\', '/'):
+                        size_bytes = gguf_file.stat().st_size
+                        return str(gguf_file), size_bytes
+                    
+                    # Also try partial matching for variant models
+                    # e.g., "gemma-3-12b" should match "gemma-3-12b-it-Q8_0.gguf"
+                    if clean_model.replace('-', '') in clean_filename.replace('-', ''):
+                        size_bytes = gguf_file.stat().st_size
+                        return str(gguf_file), size_bytes
         except Exception as e:
             continue
     

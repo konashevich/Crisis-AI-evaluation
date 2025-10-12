@@ -1,12 +1,20 @@
+
+
+
+
+
+
+
+
 {
   "model_name": "qwen3-4b-thinking-2507@q4_k_m",
   "model_id": "qwen/qwen3-4b-thinking-2507",
   "model_publisher": "qwen",
   "model_arch": "qwen3",
   "model_quantization": "Q4_K_M",
-  "model_file_path": null,
-  "model_size_bytes": null,
-  "model_size_gb": null,
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-4B-Thinking-2507-GGUF\\Qwen3-4B-Thinking-2507-Q4_K_M.gguf",
+  "model_size_bytes": 2497280448,
+  "model_size_gb": 2.3257736563682556,
   "hf_repo": null,
   "hf_size_gb": null,
   "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",

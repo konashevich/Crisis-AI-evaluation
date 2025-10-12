@@ -28,58 +28,64 @@
       "questions_count": 32
     },
     "gemma-3-12b-q4_k_m": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 6.799190282821655,
+      "model_size_bytes": 7300574976,
       "model_quantization": "Q4_K_M",
       "model_arch": "gemma3",
       "model_publisher": "google",
       "duration_seconds": 3549,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\gemma-3-12b-it-GGUF\\gemma-3-12b-it-Q4_K_M.gguf"
     },
     "gemma-3-12b-q6_k": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 6.799190282821655,
+      "model_size_bytes": 7300574976,
       "model_quantization": "Q4_K_M",
       "model_arch": "gemma3",
       "model_publisher": "google",
       "duration_seconds": 3571,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\gemma-3-12b-it-GGUF\\gemma-3-12b-it-Q4_K_M.gguf"
     },
     "gemma-3-12b-q8_0": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 6.799190282821655,
+      "model_size_bytes": 7300574976,
       "model_quantization": "Q4_K_M",
       "model_arch": "gemma3",
       "model_publisher": "google",
       "duration_seconds": 3741,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\gemma-3-12b-it-GGUF\\gemma-3-12b-it-Q4_K_M.gguf"
     },
     "gemma-3n-e4b-q4_k_m": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 3.9460727274417877,
+      "model_size_bytes": 4237063328,
       "model_quantization": "Q4_K_M",
       "model_arch": "gemma3n",
       "model_publisher": "google",
       "duration_seconds": 649,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\gemma-3n-E4B-it-text-GGUF\\gemma-3n-E4B-it-Q4_K_M.gguf"
     },
     "gemma-3n-e4b-q6_k": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 3.9460727274417877,
+      "model_size_bytes": 4237063328,
       "model_quantization": "Q4_K_M",
       "model_arch": "gemma3n",
       "model_publisher": "google",
       "duration_seconds": 682,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\gemma-3n-E4B-it-text-GGUF\\gemma-3n-E4B-it-Q4_K_M.gguf"
     },
     "gemma-3n-e4b-q8_0": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 3.9460727274417877,
+      "model_size_bytes": 4237063328,
       "model_quantization": "Q4_K_M",
       "model_arch": "gemma3n",
       "model_publisher": "google",
       "duration_seconds": 639,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\gemma-3n-E4B-it-text-GGUF\\gemma-3n-E4B-it-Q4_K_M.gguf"
     },
     "llama-3.2-3b-instruct": {
       "model_size_gb": 1.880692034959793,
@@ -109,49 +115,54 @@
       "questions_count": 32
     },
     "phi-4-mini-reasoning-q4_k_m": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3207390308380127,
+      "model_size_bytes": 2491874560,
       "model_quantization": "Q4_K_M",
       "model_arch": "phi3",
       "model_publisher": "microsoft",
       "duration_seconds": 542,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Phi-4-mini-reasoning-GGUF\\Phi-4-mini-reasoning-Q4_K_M.gguf"
     },
     "phi-4-mini-reasoning-q8_0": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3207390308380127,
+      "model_size_bytes": 2491874560,
       "model_quantization": "Q4_K_M",
       "model_arch": "phi3",
       "model_publisher": "microsoft",
       "duration_seconds": 523,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Phi-4-mini-reasoning-GGUF\\Phi-4-mini-reasoning-Q4_K_M.gguf"
     },
     "phi-4-q6_k": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 11.20404452085495,
+      "model_size_bytes": 12030251200,
       "model_quantization": "Q6_K",
       "model_arch": "phi3",
       "model_publisher": "microsoft",
       "duration_seconds": 3234,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\phi-4-GGUF\\phi-4-Q6_K.gguf"
     },
     "phi-4-reasoning-plus-q4_k_m": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 8.431371420621872,
+      "model_size_bytes": 9053116128,
       "model_quantization": "Q4_K_M",
       "model_arch": "phi3",
       "model_publisher": "microsoft",
       "duration_seconds": 13338,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Phi-4-reasoning-plus-GGUF\\Phi-4-reasoning-plus-Q4_K_M.gguf"
     },
     "phi-4-reasoning-plus-q6_k": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 8.431371420621872,
+      "model_size_bytes": 9053116128,
       "model_quantization": "Q4_K_M",
       "model_arch": "phi3",
       "model_publisher": "microsoft",
       "duration_seconds": 13155,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Phi-4-reasoning-plus-GGUF\\Phi-4-reasoning-plus-Q4_K_M.gguf"
     },
     "qwen2-500m-instruct": {
       "model_size_gb": 0.4945933222770691,
@@ -208,31 +219,34 @@
       "questions_count": 32
     },
     "qwen3-4b-2507-q4_k_m": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3257736563682556,
+      "model_size_bytes": 2497280448,
       "model_quantization": "Q4_K_M",
       "model_arch": "qwen3",
       "model_publisher": "qwen",
       "duration_seconds": 310,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-4B-Instruct-2507-GGUF\\Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
     },
     "qwen3-4b-2507-q6_k": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3257736563682556,
+      "model_size_bytes": 2497280448,
       "model_quantization": "Q4_K_M",
       "model_arch": "qwen3",
       "model_publisher": "qwen",
       "duration_seconds": 314,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-4B-Instruct-2507-GGUF\\Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
     },
     "qwen3-4b-2507-q8_0": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3257736563682556,
+      "model_size_bytes": 2497280448,
       "model_quantization": "Q4_K_M",
       "model_arch": "qwen3",
       "model_publisher": "qwen",
       "duration_seconds": 307,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-4B-Instruct-2507-GGUF\\Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
     },
     "qwen3-4b-q4_k_m": {
       "model_size_gb": 2.3257738947868347,
@@ -262,31 +276,34 @@
       "questions_count": 32
     },
     "qwen3-4b-thinking-2507-q4_k_m": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3257736563682556,
+      "model_size_bytes": 2497280448,
       "model_quantization": "Q4_K_M",
       "model_arch": "qwen3",
       "model_publisher": "qwen",
       "duration_seconds": 686,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-4B-Thinking-2507-GGUF\\Qwen3-4B-Thinking-2507-Q4_K_M.gguf"
     },
     "qwen3-4b-thinking-2507-q6_k": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3257736563682556,
+      "model_size_bytes": 2497280448,
       "model_quantization": "Q4_K_M",
       "model_arch": "qwen3",
       "model_publisher": "qwen",
       "duration_seconds": 698,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-4B-Thinking-2507-GGUF\\Qwen3-4B-Thinking-2507-Q4_K_M.gguf"
     },
     "qwen3-4b-thinking-2507-q8_0": {
-      "model_size_gb": null,
-      "model_size_bytes": null,
+      "model_size_gb": 2.3257736563682556,
+      "model_size_bytes": 2497280448,
       "model_quantization": "Q4_K_M",
       "model_arch": "qwen3",
       "model_publisher": "qwen",
       "duration_seconds": 678,
-      "questions_count": 32
+      "questions_count": 32,
+      "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\Qwen3-4B-Thinking-2507-GGUF\\Qwen3-4B-Thinking-2507-Q4_K_M.gguf"
     },
     "qwen3-8b-q4_k_m": {
       "model_size_gb": 0.9322049021720886,

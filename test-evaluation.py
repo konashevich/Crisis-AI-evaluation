@@ -389,6 +389,7 @@ def main():
 
         # Save progress after each question (with metadata)
         progress_report = {
+            "batch_folder": batch_folder,
             "model_metadata": model_metadata or {},
             "evaluations": final_report
         }
@@ -402,6 +403,7 @@ def main():
 
     # Add model metadata to the report
     final_report_with_metadata = {
+        "batch_folder": batch_folder,
         "model_metadata": model_metadata or {},
         "evaluations": final_report
     }

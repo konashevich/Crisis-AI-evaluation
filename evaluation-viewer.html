@@ -314,11 +314,41 @@
             }
         }
 
-        // Generate Summary Cards
-        function generateSummaryCards(data) {
+        // Fetch runinfo for a model to get size data (async fallback)
+        async function fetchRuninfo(modelName, batchFolder) {
+            if (!batchFolder) return null;
+            
+            try {
+                // Try to find the runinfo file
+                // Format: {model_name}_{timestamp}_runinfo.json
+                const response = await fetch(`${batchFolder}/`);
+                const html = await response.text();
+                
+                // Parse directory listing to find matching runinfo file
+                const pattern = new RegExp(`${modelName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}_[\\d-]+_[\\d-]+_runinfo\\.json`, 'i');
+                const match = html.match(pattern);
+                
+                if (match) {
+                    const runinfoResponse = await fetch(`${batchFolder}/${match[0]}`);
+                    const runinfo = await runinfoResponse.json();
+                    return {
+                        model_size_gb: runinfo.model_size_gb,
+                        model_size_bytes: runinfo.model_size_bytes,
+                        model_file_path: runinfo.model_file_path
+                    };
+                }
+            } catch (e) {
+                console.warn(`Could not fetch runinfo for ${modelName}:`, e);
+            }
+            return null;
+        }
+
+        // Generate Summary Cards (with async runinfo fetching)
+        async function generateSummaryCards(data) {
             const modelScores = {};
             const evaluations = data.evaluations || data; // Support both new and old format
             const metadata = data.model_metadata || {};
+            const batchFolder = data.batch_folder; // Get batch folder if available
 
             // Aggregate scores
             for (const category of Object.values(evaluations)) {
@@ -342,7 +372,7 @@
                 }
             }
 
-            // Calculate averages and sort
+            // Calculate averages
             const ranking = Object.entries(modelScores).map(([name, scores]) => ({
                 name,
                 avgScore: scores.reduce((a, b) => a + b, 0) / scores.length,
@@ -351,6 +381,29 @@
                 quantization: metadata[name]?.model_quantization || null,
                 duration_seconds: metadata[name]?.duration_seconds || null
             }));
+            
+            // Try to fetch missing size data from runinfo files
+            if (batchFolder) {
+                await Promise.all(ranking.map(async (model) => {
+                    if (model.size_gb === null) {
+                        const runinfo = await fetchRuninfo(model.name, batchFolder);
+                        if (runinfo && runinfo.model_size_gb) {
+                            model.size_gb = runinfo.model_size_gb;
+                            console.log(`✅ Loaded size for ${model.name}: ${runinfo.model_size_gb.toFixed(2)} GB`);
+                        }
+                    }
+                }));
+            }
+            
+            // Debug: Log first few models with their metadata
+            console.log('Sample ranking data:', ranking.slice(0, 3).map(m => ({
+                name: m.name,
+                size_gb: m.size_gb,
+                quantization: m.quantization,
+                has_metadata: !!metadata[m.name],
+                metadata_keys: metadata[m.name] ? Object.keys(metadata[m.name]) : []
+            })));
+            
             ranking.sort((a, b) => b.avgScore - a.avgScore || a.name.localeCompare(b.name));
 
             // Generate HTML
@@ -360,32 +413,40 @@
                 const bgClass = colorClass.replace('100', '200');
                 const textClass = colorClass.split(' ')[1] || 'text-gray-800';
                 
+                // Model size info (more prominent)
                 let sizeInfo = '';
-                if (model.size_gb !== null) {
-                    sizeInfo = `<p class="text-xs text-gray-500 mt-1">${model.size_gb.toFixed(2)} GB`;
-                    if (model.quantization) {
-                        sizeInfo += ` (${model.quantization})`;
-                    }
-                    sizeInfo += `</p>`;
+                if (model.size_gb !== null && model.size_gb !== undefined) {
+                    sizeInfo = `<div class="mt-2 flex items-center justify-between">
+                        <span class="text-sm font-semibold text-blue-600">${model.size_gb.toFixed(2)} GB</span>
+                        ${model.quantization ? `<span class="text-xs text-gray-500">${model.quantization}</span>` : ''}
+                    </div>`;
+                } else {
+                    // Show N/A for models without size data
+                    sizeInfo = `<div class="mt-2 flex items-center justify-between">
+                        <span class="text-sm text-gray-400">Size: N/A</span>
+                        ${model.quantization ? `<span class="text-xs text-gray-500">${model.quantization}</span>` : ''}
+                    </div>`;
                 }
                 
+                // Runtime info
                 let timeInfo = '';
-                if (model.duration_seconds !== null) {
+                if (model.duration_seconds !== null && model.duration_seconds !== undefined) {
                     const minutes = Math.floor(model.duration_seconds / 60);
                     const seconds = model.duration_seconds % 60;
-                    timeInfo = `<p class="text-xs text-gray-500">${minutes}:${seconds.toString().padStart(2, '0')} runtime</p>`;
+                    timeInfo = `<p class="text-xs text-gray-500 mt-1">⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}</p>`;
                 }
 
                 return `
                     <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mb-2">
                             <h3 class="text-lg font-semibold text-gray-700">${escapeHtml(model.name)}</h3>
-                            <span class="text-xs text-gray-500">#${idx + 1}</span>
+                            <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded">#${idx + 1}</span>
                         </div>
                         <p class="text-3xl font-bold mt-2 ${textClass}">
                             ${model.avgScore.toFixed(2)}
                         </p>
-                        <p class="text-sm text-gray-500 mt-1">Average Score (${model.count} questions)</p>
+                        <p class="text-sm text-gray-500 mt-1">Average Score</p>
+                        <p class="text-xs text-gray-400">${model.count} questions</p>
                         ${sizeInfo}
                         ${timeInfo}
                     </div>
@@ -515,8 +576,8 @@
         }
 
         // Display a report
-        function displayReport(data) {
-            generateSummaryCards(data);
+        async function displayReport(data) {
+            await generateSummaryCards(data);
             generateDetailedReport(data);
             document.getElementById('report-section').classList.remove('hidden');
             document.getElementById('error-section').classList.add('hidden');
