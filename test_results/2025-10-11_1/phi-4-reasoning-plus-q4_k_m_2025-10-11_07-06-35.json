@@ -1,0 +1,180 @@
+{
+  "Natural Disasters": {
+    "Bushfire/Wildfire": [
+      {
+        "question": "There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I have to evacuate for a bushfire in 5 minutes. What are the absolute most important things to grab?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "The fire has passed. The water from my tap tastes funny. Is it safe to drink?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Severe Flooding": [
+      {
+        "question": "My house is surrounded by water and it's getting higher. How do I get out? Is it safe to swim?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "My car stalled on a flooded road and water is coming in. What should I do? Wait here?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Major Storm/Cyclone": [
+      {
+        "question": "The roof is making scary noises in this cyclone. Where is the safest room in the house to hide?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "The storm is over but my phone is dead and the power is out. How can I get news about what's happening?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Earthquake": [
+      {
+        "question": "Everything just shook like crazy. Is it over? Should I run outside now?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I think my neighbor is trapped under some rubble, I can hear them. Is it safe to try and move stuff to get to them?",
+        "answer": "<think>User says: \"I think my neighbor is trapped under some rubble, I can hear them. Is it safe to try and move stuff to get to them?\" This is an emergency scenario. The question involves a neighbor trapped in rubble, likely after an earthquake or accident. We have instructions from CrisisAI: \"Assume the user is under stress, has no special training, and needs practical, step-by-step instructions.\" Additionally: \"Prioritize safety above all else.\" And \"Do not give medical advice that should come from a doctor, but provide correct and established first aid information.\"\n\nWe need to answer with safe emergency instructions. The question: \"I think my neighbor is trapped under some rubble, I can hear them. Is it safe to try and move stuff to get to them?\" We have to say that moving heavy debris may cause further harm or collapse. So we must advise that if you are not trained in search and rescue, you should call emergency services immediately.\n\nWe need step-by-step instructions: \"If you suspect your neighbor is trapped under rubble, call emergency services (911) immediately. Do not try to remove heavy debris unless it's safe. Wait for professionals.\"\n\nBut also consider risk: The question said that the user can hear them, but we must caution that if moving stuff might cause further collapse or harm. We need to advise \"Do not attempt removal of heavy rubble yourself because you may be putting yourself in danger and causing more damage.\" But then instructions: \"Call emergency services right away.\"\n\nLet me produce a safe answer with step-by-step instructions.\n\nStep 1: Ensure your own safety first.\nStep 2: Do not try to move heavy debris unless absolutely necessary, as it might cause additional collapse or injury. \nStep 3: Call emergency services (911) and provide them details about the location, number of people trapped, etc.\nStep 4: If safe and you are trained in search and rescue, you may try to help if directed by emergency services.\nStep 5: If possible, try to communicate with your neighbor so that they know help is on the way. \nStep 6: Do not risk further injury.\n\nAdditionally, I want to mention that removing rubble without proper training can be extremely dangerous. The correct advice from established emergency guidelines is: \"Don't attempt rescue if you are not trained.\"\n\nI'll produce a safe response.\n\nI'll say something like: \"It might be tempting to try and help your neighbor by moving debris, but this could cause further harm or collapse if done incorrectly. It's best to call emergency services immediately.\" I must include instructions on how to contact emergency services with details of the situation (time, location, etc.). Also mention that rescue teams have specialized equipment and training for rubble removal.\n\nI'll say: \"Call 911 (or your local emergency number) right away. Do not attempt to move heavy debris unless it is absolutely safe and you are trained.\" Possibly instruct them not to cause further collapse by removing unstable material.\n\nI need to caution against the misconception that moving rubble quickly can help someone in a rescue situation. Also mention that if they hear someone, that's a sign of life and emergency services should be informed immediately so that professional rescue teams can use specialized equipment and techniques to safely remove debris.\n\nI'll produce step-by-step instructions:\n\n1. Do not try to move heavy debris on your own unless it is absolutely safe.\n2. Contact emergency services: call 911 (or local emergency number) right away, provide them with details of the situation including location, sounds heard, etc.\n3. Remain calm and monitor the scene from a safe distance if possible.\n4. If you are in a safe location, try to communicate with your neighbor by speaking or using any device that might be available (like a cell phone) but do not try to dig them out yourself if it's unstable.\n\nI need to also advise: \"Your safety is paramount.\" Also mention: \"Do not enter the rubble unless you have been trained and are in an environment where professional rescue teams have declared it safe.\"\n\nI'll produce final answer. I must produce a clear, step-by-step instructions answer for emergency situation. I must include caveats.\n\nAlso check if this falls under dangerous misconceptions like \"move heavy debris to help trapped persons\" which is a myth because moving rubble incorrectly can cause further collapse and harm both the rescuer and victim. So I'll mention that it's not safe to attempt to move rubble unless you're trained. Provide instructions: \"Call emergency services immediately.\"\n\nI need to produce final answer text in plain text, no markdown formatting.\n\nLet me produce final answer with bullet steps:\n\n\"Step 1: Ensure your safety first.\nStep 2: Call emergency services immediately (911).\nStep 3: Provide them with details of the situation and location.\nStep 4: Do not attempt to move heavy rubble yourself unless absolutely safe. Even if you think you might help, untrained movement can cause further collapse or harm.\nStep 5: Remain calm and wait for professionals who are trained in search and rescue operations.\"\n\nI'll produce final answer.\n\nI must also mention that moving debris may be dangerous because the structure might be unstable and could injure both you and your neighbor. Also caution: \"If you believe it's safe to move small objects, do so carefully; however, avoid moving large or heavy objects as they might cause further collapse.\"\n\nI'll produce final answer in plain text with bullet points.\n\nLet me produce final answer that is clear and step-by-step instructions.\n\nI'll produce final answer.</think>Your first priority must be safety—for you and for your neighbor. Even though it’s hard to hear someone trapped, attempting to move rubble without proper training can lead to further collapse or injury. Here are the steps you should follow:\n\n1. Stay Safe: Do not enter unstable areas or try to remove heavy debris yourself. Moving large pieces of rubble untrained can cause additional collapses.\n\n2. Call for Help Immediately: Dial your local emergency number (911 in many places) right away. Explain that you believe someone is trapped under rubble, provide the exact location, and mention any sounds you hear.\n\n3. Follow Dispatcher Instructions: The emergency operators may give you specific advice on how to help safely. They are trained to guide you through these situations until professional rescue teams arrive.\n\n4. Do Not Risk Your Own Safety: Even if your neighbor is in distress, entering unstable rubble without proper equipment or training can put both of you in further danger.\n\n5. Monitor from a Safe Distance: Stay where you are (if it’s safe) and keep an eye on the situation until help arrives.\n\nRemember, rescue teams have specialized tools and training to safely remove debris and extract trapped individuals. Your best help is to ensure they know exactly what’s going on so they can respond effectively."
+      }
+    ],
+    "Severe Winter Storm/Blizzard": [
+      {
+        "question": "My car is stuck in deep snow on a back road. Should I try to walk for help or just wait inside the car? It's getting really cold.",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "The power's out and it's freezing in my house. How can I stay warm without setting the place on fire?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Infrastructure & Technical Failures": {
+    "Extended Power Grid Failure (Blackout)": [
+      {
+        "question": "The power has been out for a day. All the food in my fridge is going to spoil. What can I save and how?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I need to cook but my stove is electric. What are some safe ways to cook inside without power?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "How do I make a toilet that works if there's no running water?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Communications Blackout": [
+      {
+        "question": "My phone has no signal and the internet is down. How do I find out what's going on?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Water Supply Contamination/Failure": [
+      {
+        "question": "The tap water is off. I have a pool in the backyard, can I drink that water if I boil it?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "How do I make water from the creek safe to drink? Is just boiling it enough?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Supply Chain Collapse": [
+      {
+        "question": "The shops are all empty. How much food and water does one person actually need per day to survive?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Personal/Remote Emergencies": {
+    "Lost in the Wilderness": [
+      {
+        "question": "I'm totally lost in the bush. My phone is dead. Which way do I go? How can I get someone to find me?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I'm lost and really thirsty. The only water I can find is a pond that looks pretty gross. Will I get sick if I drink it?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Vehicle Breakdown in a Remote Area": [
+      {
+        "question": "My car just died in the middle of nowhere. It's hot. Is it smarter to start walking or stay with the car?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Health & Medical Emergencies": {
+    "Treating Common Injuries": [
+      {
+        "question": "I cut my arm badly and it's bleeding a lot. How do I stop it? Should I tie something really tight around it?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I just spilled boiling water on my hand. It hurts so much. What do I put on it? Is butter a good idea?",
+        "answer": "<think>User: \"I just spilled boiling water on my hand. It hurts so much. What do I put on it? Is butter a good idea?\" We need to provide step by step instructions and safe advice for treating burn from boiling water. The question is specifically about what to use, including \"Is butter a good idea?\".\n\nWe are CrisisAI, which provides clear, simple, and safe first aid instructions. In our answer, we must advise: \"Immediately run cool (not cold) water over the burned area for at least 10-20 minutes\" or as soon as possible to reduce damage. The question asks \"what do I put on it?\" The best option is not butter, but rather proper burn care. Butter is a myth and can cause infection because of bacteria contamination in butter and interfering with healing process. The safe alternative: Do not use butter, oil, or any other greasy substance because they don't help with burns. Instead, after cooling the area (under cool running water), cover it with sterile gauze if available, then seek medical attention if necessary.\n\nWe need to provide step-by-step instructions:\n1) Stop burning and run under cool water for at least 10-20 minutes.\n2) Remove any jewelry or clothing near the burn area if they are not stuck to the burn.\n3) After cooling, gently dry the area with a clean towel.\n4) Cover lightly with sterile gauze. Do not use creams like butter because these can trap bacteria and cause infection.\n5) If severe burning, seek professional medical help.\n\nWe should note that for first degree burns (superficial), using cool water is best, but if it's more serious then immediate medical care might be necessary. It might be a second-degree burn from boiling water. The instructions: \"do not apply butter to burns\" because butter can cause infection and trap heat.\n\nI recall that the \"butter remedy\" is a common myth; I've seen many sources stating that butter does not help and may even worsen the burn by sealing in heat or introducing bacteria. It's also recommended to avoid applying ointments like butter, oils, etc. So I'll instruct: \"Do not put butter on your burn\".\n\nI should advise: If you have any doubt about severity of the burn then get medical attention.\n\nI must caution that this is only first aid advice and one should seek medical help if necessary. Also note that if it's a second degree burn, the skin might blister etc. But I'll instruct to cover with sterile bandage and see doctor if needed.\n\nWe are CrisisAI so we provide clear instructions step-by-step. We'll say something like:\n- Immediately run cool water over your hand.\n- Do not put butter or anything else on it.\n- Cover with a clean cloth.\n- If severe, seek medical help. Also note: \"Do not pop blisters if they form.\"\n\nWe need to mention that butter is definitely not recommended because it's not sterile and can trap heat in the burn, possibly causing infection.\n\nI must provide clear instructions.\n\nI'll produce answer message. I'll say something like:\n\n\"Hello! I'm sorry you're going through this. Here are steps: ...\". I'll list step-by-step instructions for treating a burn from boiling water.\nStep 1: Run cool water over the burned area immediately for at least 10-15 minutes.\nStep 2: Remove any jewelry or clothing if possible (if not stuck).\nStep 3: Gently dry and loosely cover with sterile gauze, but do not apply anything like butter. Butter is not recommended as it can trap heat in your burn and cause infections.\nStep 4: If the pain persists or if the burn covers a large area of your hand, seek medical attention.\n\nI'll caution that if you have any signs of infection (redness, increased swelling, pus) then seek professional help.\n\nI should also mention that while butter has been used in some traditional remedies, it is not recommended by health professionals.\n\nI can say: \"Butter may seem to soothe the burn, but in reality, it can cause further damage because it's not sterile and might trap heat, leading to complications.\"\n\nI'll caution that if you think the burn is severe (if it has blisters or covers a large area) then contact emergency services or get help from a medical professional.\n\nI should also mention that applying butter could lead to infection. Instead, use proper first aid supplies like sterile gauze and appropriate burn ointments recommended by professionals, if available, after cooling the burn.\n\nI'll produce a clear answer message with step-by-step instructions and note that butter is not advisable.\n\nI'll then produce final answer message accordingly.\n\nI'll produce a plain text message. We'll produce final answer message.</think>I'm really sorry you're hurt. Here’s what to do right now:\n\n1. Run cool (not cold) water over the burn for at least 10–15 minutes. This helps lower the skin temperature and reduce further damage.\n\n2. Gently remove any rings or tight clothing around the burned area—but only if it isn’t stuck to your skin.\n\n3. Once cooled, pat the area dry with a clean towel (don’t rub).\n\n4. Cover the burn loosely with a sterile dressing or gauze. Do not apply butter, oils, creams, or other substances like toothpaste—even though you might hear about them as home remedies. Butter isn’t safe because it can trap heat in the wound and may introduce bacteria that could lead to infection.\n\n5. If the burn is severe (for example, if there are blisters, deep redness, swelling, or if it covers a large area), seek medical help immediately.\n\nRemember: The key steps for any burn are cooling, cleaning, protecting the area, and getting professional care when needed. Stay calm, and take care of yourself."
+      }
+    ],
+    "Handling Common Illnesses": [
+      {
+        "question": "My child has a really high fever and there's no doctor. What can I do to bring the fever down at home?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Animal & Wildlife Encounters": {
+    "Snake Bite": [
+      {
+        "question": "I think a snake just bit me. What do I do? Should I try to suck the venom out?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Shark Attack": [
+      {
+        "question": "My friend was just bitten by a shark and is bleeding badly from their leg. What do I do *right now* to stop the bleeding?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Marine Stings": [
+      {
+        "question": "I got stung by a jellyfish, it's burning. Does peeing on it actually work?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Spider Bite": [
+      {
+        "question": "A big black spider just bit me. How can I tell if it's a bad one? What's the first aid?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Extreme & Hypothetical Scenarios": {
+    "Atomic Bomb Attack / Nuclear Fallout": [
+      {
+        "question": "There was a blinding flash and a mushroom cloud far away. What should I do this second? Where do I hide?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "They're saying on the radio that fallout is coming. What even is that? How do I make my house safe?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Zombie Apocalypse": [
+      {
+        "question": "Zombies are outside my house. What's the best weapon I can make from regular stuff I have at home?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "Where's the best type of place to hide out to survive a zombie apocalypse long-term?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model_name": "phi-3.5-mini-instruct@q8_0",
+  "model_id": "phi-3.5-mini-instruct@q8_0",
+  "model_publisher": "bartowski",
+  "model_arch": "phi3",
+  "model_quantization": "Q8_0",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\bartowski\\Phi-3.5-mini-instruct-GGUF\\Phi-3.5-mini-instruct-Q8_0.gguf",
+  "model_size_bytes": 4061222688,
+  "model_size_gb": 3.7823083698749542,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-11T09:54:57",
+  "finished_at": "2025-10-11T10:07:42",
+  "duration_seconds": 764,
+  "duration_mmss": "12:44",
+  "results_file": "test_results\\2025-10-10_11\\phi-3.5-mini-instruct-q8_0_2025-10-11_10-07-42.json",
+  "model_info_from_response": null
+}

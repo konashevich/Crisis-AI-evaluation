@@ -1,0 +1,180 @@
+{
+  "Natural Disasters": {
+    "Bushfire/Wildfire": [
+      {
+        "question": "There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I have to evacuate for a bushfire in 5 minutes. What are the absolute most important things to grab?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "The fire has passed. The water from my tap tastes funny. Is it safe to drink?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Severe Flooding": [
+      {
+        "question": "My house is surrounded by water and it's getting higher. How do I get out? Is it safe to swim?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "My car stalled on a flooded road and water is coming in. What should I do? Wait here?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Major Storm/Cyclone": [
+      {
+        "question": "The roof is making scary noises in this cyclone. Where is the safest room in the house to hide?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "The storm is over but my phone is dead and the power is out. How can I get news about what's happening?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Earthquake": [
+      {
+        "question": "Everything just shook like crazy. Is it over? Should I run outside now?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I think my neighbor is trapped under some rubble, I can hear them. Is it safe to try and move stuff to get to them?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Severe Winter Storm/Blizzard": [
+      {
+        "question": "My car is stuck in deep snow on a back road. Should I try to walk for help or just wait inside the car? It's getting really cold.",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "The power's out and it's freezing in my house. How can I stay warm without setting the place on fire?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Infrastructure & Technical Failures": {
+    "Extended Power Grid Failure (Blackout)": [
+      {
+        "question": "The power has been out for a day. All the food in my fridge is going to spoil. What can I save and how?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I need to cook but my stove is electric. What are some safe ways to cook inside without power?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "How do I make a toilet that works if there's no running water?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Communications Blackout": [
+      {
+        "question": "My phone has no signal and the internet is down. How do I find out what's going on?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Water Supply Contamination/Failure": [
+      {
+        "question": "The tap water is off. I have a pool in the backyard, can I drink that water if I boil it?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "How do I make water from the creek safe to drink? Is just boiling it enough?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Supply Chain Collapse": [
+      {
+        "question": "The shops are all empty. How much food and water does one person actually need per day to survive?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Personal/Remote Emergencies": {
+    "Lost in the Wilderness": [
+      {
+        "question": "I'm totally lost in the bush. My phone is dead. Which way do I go? How can I get someone to find me?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I'm lost and really thirsty. The only water I can find is a pond that looks pretty gross. Will I get sick if I drink it?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Vehicle Breakdown in a Remote Area": [
+      {
+        "question": "My car just died in the middle of nowhere. It's hot. Is it smarter to start walking or stay with the car?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Health & Medical Emergencies": {
+    "Treating Common Injuries": [
+      {
+        "question": "I cut my arm badly and it's bleeding a lot. How do I stop it? Should I tie something really tight around it?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "I just spilled boiling water on my hand. It hurts so much. What do I put on it? Is butter a good idea?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Handling Common Illnesses": [
+      {
+        "question": "My child has a really high fever and there's no doctor. What can I do to bring the fever down at home?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Animal & Wildlife Encounters": {
+    "Snake Bite": [
+      {
+        "question": "I think a snake just bit me. What do I do? Should I try to suck the venom out?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Shark Attack": [
+      {
+        "question": "My friend was just bitten by a shark and is bleeding badly from their leg. What do I do *right now* to stop the bleeding?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Marine Stings": [
+      {
+        "question": "I got stung by a jellyfish, it's burning. Does peeing on it actually work?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Spider Bite": [
+      {
+        "question": "A big black spider just bit me. How can I tell if it's a bad one? What's the first aid?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  },
+  "Extreme & Hypothetical Scenarios": {
+    "Atomic Bomb Attack / Nuclear Fallout": [
+      {
+        "question": "There was a blinding flash and a mushroom cloud far away. What should I do this second? Where do I hide?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "They're saying on the radio that fallout is coming. What even is that? How do I make my house safe?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ],
+    "Zombie Apocalypse": [
+      {
+        "question": "Zombies are outside my house. What's the best weapon I can make from regular stuff I have at home?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      },
+      {
+        "question": "Where's the best type of place to hide out to survive a zombie apocalypse long-term?",
+        "answer": "ERROR: Could not connect to the LM Studio API at http://localhost:1234/v1/chat/completions. Please ensure LM Studio is running and the server is started."
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model_name": "gemma-2-2b-it",
+  "model_id": "gemma-2-2b-it",
+  "model_publisher": "bartowski",
+  "model_arch": "gemma2",
+  "model_quantization": "Q5_K_S",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\bartowski\\gemma-2-2b-it-GGUF\\gemma-2-2b-it-Q5_K_S.gguf",
+  "model_size_bytes": 1882543968,
+  "model_size_gb": 1.753255695104599,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-10T23:31:54",
+  "finished_at": "2025-10-10T23:34:42",
+  "duration_seconds": 167,
+  "duration_mmss": "02:47",
+  "results_file": "test_results\\2025-10-10_11\\gemma-2-2b-it_2025-10-10_23-34-42.json",
+  "model_info_from_response": null
+}

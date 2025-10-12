@@ -1,0 +1,20 @@
+{
+  "model_name": "qwen2.5-coder-3b-instruct-ts",
+  "model_id": "qwen2.5-coder-3b-instruct-ts",
+  "model_publisher": "mrcuddle",
+  "model_arch": "qwen2",
+  "model_quantization": "Q5_K_M",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\mrcuddle\\Qwen2.5-Coder-3B-Instruct-TS-Q5_K_M-GGUF\\qwen2.5-coder-3b-instruct-ts-q5_k_m.gguf",
+  "model_size_bytes": 2224353600,
+  "model_size_gb": 2.0715907216072083,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-11T11:06:13",
+  "finished_at": "2025-10-11T11:08:15",
+  "duration_seconds": 121,
+  "duration_mmss": "02:01",
+  "results_file": "test_results\\2025-10-10_11\\qwen2.5-coder-3b-instruct-ts_2025-10-11_11-08-15.json",
+  "model_info_from_response": null
+}

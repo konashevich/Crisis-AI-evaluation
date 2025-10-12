@@ -1,0 +1,20 @@
+{
+  "model_name": "phi-4-reasoning-plus@q6_k",
+  "model_id": "microsoft/phi-4-reasoning-plus",
+  "model_publisher": "microsoft",
+  "model_arch": "phi3",
+  "model_quantization": "Q4_K_M",
+  "model_file_path": null,
+  "model_size_bytes": null,
+  "model_size_gb": null,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-12T02:17:20",
+  "finished_at": "2025-10-12T05:56:36",
+  "duration_seconds": 13155,
+  "duration_mmss": "219:15",
+  "results_file": "test_results\\2025-10-11_1\\phi-4-reasoning-plus-q6_k_2025-10-12_05-56-36.json",
+  "model_info_from_response": null
+}

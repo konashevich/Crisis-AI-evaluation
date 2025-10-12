@@ -5,6 +5,8 @@ import requests
 import time
 import glob
 import argparse
+import sys
+import subprocess
 from datetime import datetime
 try:
     # Load environment variables from .env if python-dotenv is installed
@@ -412,6 +414,15 @@ def main():
     print(f"Full report saved to: {output_file}")
     if model_metadata:
         print(f"Model metadata included for {len(model_metadata)} models")
+    
+    # Auto-generate the reports index for the HTML viewer
+    try:
+        import subprocess
+        subprocess.run([sys.executable, 'generate_reports_index.py'], 
+                      capture_output=True, check=False)
+        print("✅ Updated reports index for HTML viewer")
+    except Exception as e:
+        print(f"Note: Could not update reports index: {e}")
 
 
 if __name__ == "__main__":

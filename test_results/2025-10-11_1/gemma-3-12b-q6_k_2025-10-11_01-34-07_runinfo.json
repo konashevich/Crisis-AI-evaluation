@@ -1,0 +1,20 @@
+{
+  "model_name": "gemma-3-12b@q6_k",
+  "model_id": "google/gemma-3-12b",
+  "model_publisher": "google",
+  "model_arch": "gemma3",
+  "model_quantization": "Q4_K_M",
+  "model_file_path": null,
+  "model_size_bytes": null,
+  "model_size_gb": null,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-11T00:34:36",
+  "finished_at": "2025-10-11T01:34:07",
+  "duration_seconds": 3571,
+  "duration_mmss": "59:31",
+  "results_file": "test_results\\2025-10-10_11\\gemma-3-12b-q6_k_2025-10-11_01-34-07.json",
+  "model_info_from_response": null
+}

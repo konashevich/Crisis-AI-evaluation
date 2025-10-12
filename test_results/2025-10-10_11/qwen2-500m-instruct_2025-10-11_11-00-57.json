@@ -1,0 +1,180 @@
+{
+  "Natural Disasters": {
+    "Bushfire/Wildfire": [
+      {
+        "question": "There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?",
+        "answer": "Firstly, stay calm and keep your oxygen level up. If you're alone in the building, run to an exit as fast as you can.\n\nStay on the ground and away from the fire if possible. Move to a lower floor if available. Don't use elevators unless absolutely necessary.\n\nIf you see flames coming towards you or if you hear them coming, quickly leave the building and find an open area with plenty of space from other buildings.\n\nStay in a safe spot and don't move too fast. Use your hands to put out small fires, but do not attempt to extinguish a larger fire.\n\nIf you feel dizzy or faint, lean on someone else or seek help immediately.\n\nIf you are unsure what the safest course of action is, call emergency services for guidance."
+      },
+      {
+        "question": "I have to evacuate for a bushfire in 5 minutes. What are the absolute most important things to grab?",
+        "answer": "First, make sure you know where you are: If you're at home, take your phone or any devices that can connect to the internet and check for updates on the situation. Make copies of important documents such as bank statements, insurance policies, and financial records.\nNext, gather essential items:\n- Water bottles: Keep them in a cooler so they don't freeze.\n- Flashlights: A waterproof one is best. If you're outside, you can use your phone to take photos for safety.\n- Batteries: Bring enough to last the duration of the evacuation. Some batteries are designed to be used outdoors and may not be suitable indoors.\n- First aid kit: Make sure it includes band-aids, antiseptic wipes, and sterile gauze. You'll want to keep a few small containers of medicine for common injuries like cuts or sprains.\n- Snacks: Keep some snacks handy in the cooler or in your bag. If you're hungry, make sure they're fresh and have a way to freeze if necessary.\n- Smoke detectors: Check to see if any are working properly and bring them with you.\n- Extra clothes: Pack a few extra layers of clothing for different weather conditions.\nRemember that this is just an absolute list and your specific situation may require additional items or considerations. Always prioritize safety first and follow the advice from experienced emergency responders."
+      },
+      {
+        "question": "The fire has passed. The water from my tap tastes funny. Is it safe to drink?",
+        "answer": "No, please do not consume any water that you found after your fire extinguished. It is very important to avoid drinking anything that you did not know about or was consumed on your own.\nWater can be a source of lead poisoning if it is contaminated with other toxic substances such as metal. This could cause serious health problems in individuals who drink the water, including children and pregnant women.\nIf you find that your tap water tastes funny or has a strange smell, do not try to drink it immediately. Instead, clean it up by washing it down with water from a sink or faucet. After cleaning, rinse the water under running water and pour it away from your faucet into a bucket or container outside where you can dispose of it safely.\nIf you have any other questions or concerns about drinking water, do not hesitate to ask. I am here to help you in any way possible!"
+      }
+    ],
+    "Severe Flooding": [
+      {
+        "question": "My house is surrounded by water and it's getting higher. How do I get out? Is it safe to swim?",
+        "answer": "First, try not to move away from your home or any structures in case you can't escape. If you need to get out of the water, try using a life raft if available (or check with local authorities). Remember to stay calm and follow proper safety procedures.\n\nIf you do have access to a swimmer's license, consider swimming under cover of darkness. But if it's not safe for you or your family, call emergency services or an animal rescue agency immediately."
+      },
+      {
+        "question": "My car stalled on a flooded road and water is coming in. What should I do? Wait here?",
+        "answer": "Firstly, try to keep your vehicle from getting stuck by rolling down the window or using the hood as a makeshift ramp.\nIf you cannot get out of the vehicle safely, try to locate an exit or exit signs near your vehicle. If there are no exit signs, use a phone or walk around the car until someone can come and help you.\nIn any case, wait in the open area away from the flooded road while emergency services arrive.\n\nDo not attempt to climb up into the car or drive it yourself. Instead, call for emergency assistance and wait for them to arrive."
+      }
+    ],
+    "Major Storm/Cyclone": [
+      {
+        "question": "The roof is making scary noises in this cyclone. Where is the safest room in the house to hide?",
+        "answer": "In a secure location such as a basement or an enclosed area, such as a garage or shed, where there are no other sources of noise.\nIf you're in a car and the storm is moving quickly, try to keep your windows closed and lock them tight. If the wind is strong enough, consider driving away from the storm center.\nIn case of a tornado, it's important not to attempt to run outdoors or get inside unless absolutely necessary. Instead, stay indoors with an umbrella or any available shelter until the storm has passed."
+      },
+      {
+        "question": "The storm is over but my phone is dead and the power is out. How can I get news about what's happening?",
+        "answer": "First, turn on your mobile device. Most phones have a built-in Wi-Fi connection for internet access. Now, find or create an official news source that covers the situation in your area.\n\n- Check local news channels: These are typically local, national, and international news outlets.\n  \n- Visit websites with a strong news presence: News organizations like CNN, BBC, Al Jazeera, and Reuters provide comprehensive coverage of the storm and its aftermath.\n\n- Search for \"emergency alerts\" or \"weather updates\" on your smartphone's app.\n\n- Check social media for immediate updates from local authorities.\n\n- For more specialized information, consider websites like The Weather Channel for real-time weather forecasts.\n\n- If you're in a remote location, you can also use apps like Signal for emergency text messages that can reach friends and family outside of the storm area."
+      }
+    ],
+    "Earthquake": [
+      {
+        "question": "Everything just shook like crazy. Is it over? Should I run outside now?",
+        "answer": "First, try to stay calm and cool down as much as possible. This might be a good time to check on anyone who is still inside.\n\nIf there are any injuries, call emergency services immediately.\n\nIf you feel fine, you should wait for at least 15 minutes before deciding whether or not to go outside. \n\nRemember, safety comes first when dealing with stress and emergencies."
+      },
+      {
+        "question": "I think my neighbor is trapped under some rubble, I can hear them. Is it safe to try and move stuff to get to them?",
+        "answer": "It's important to remember that you're in a crisis situation and your safety is priority number one. It's not safe for you to try and move things to help the person who may be trapped under rubble. You should immediately call emergency services or use known methods to get assistance from others. If the rubble is very dense, using tools like shovels, trowel, and/or other small pieces of equipment might work but it's important not to break any bones or injure yourself while you're doing this."
+      }
+    ],
+    "Severe Winter Storm/Blizzard": [
+      {
+        "question": "My car is stuck in deep snow on a back road. Should I try to walk for help or just wait inside the car? It's getting really cold.",
+        "answer": "Firstly, you should check if there are any other options available such as an emergency phone, a friend or family member, or a local emergency service like a police station or fire department.\nIf there is no immediate help nearby, it would be prudent to consider walking for the safety of your car and yourself. If the temperature drops below freezing, you should not attempt to walk in the snow unless absolutely necessary.\nAdditionally, try to keep an open mind, as some people may have different opinions on what works best. It's essential to seek help from professionals such as a doctor or emergency services if there is an immediate threat to your safety or that of others.\nIf you're still unsure, it's always better to err on the side of caution and wait inside the car until someone arrives."
+      },
+      {
+        "question": "The power's out and it's freezing in my house. How can I stay warm without setting the place on fire?",
+        "answer": "Firstly, try to find a way to keep your heater working properly or temporarily turn off all heating systems if they are not already switched off.\nIf your thermostat is set to 68 degrees Fahrenheit or higher, you may need to lower it down to avoid overheating. You can do this by closing the curtains on windows or doors, adjusting the thermostat, or using a fan if the room feels too hot.\nIf your heater isn't working properly, try turning off all the gas supplies and letting it cool itself first. This will help prevent a fire from setting up in the house.\nIf you're still cold after trying to keep the heat on, you may need to use a warm blanket or jacket to stay warm while you wait for your heating system to work again.\nIf your heating system is damaged and there are no other options available, it's best to leave the premises and call emergency services. They can provide assistance in getting your property back to normal operating condition, but they may not be able to fix a faulty heating system without breaking down the building.\nRemember that safety should always come first when dealing with emergency situations like this one. If you are still experiencing extreme cold or discomfort even after trying to warm up your home, seek medical attention immediately."
+      }
+    ]
+  },
+  "Infrastructure & Technical Failures": {
+    "Extended Power Grid Failure (Blackout)": [
+      {
+        "question": "The power has been out for a day. All the food in my fridge is going to spoil. What can I save and how?",
+        "answer": "Firstly, you need to check if your fridge has been turned off or is not connected to any electrical outlet. If it isn't plugged into an outlet, you might have to use a battery-powered microwave or a non-electric oven.\n\nNext, try to find as many food items as possible that are still good and can be stored in the fridge. Some common options include:\n\n- Snacks like chips or crackers\n- Cheese or other dairy products\n-酱料和调味品（如黄油、番茄酱或甜面酱）\n-罐头食品\n-水果\n-蔬菜\n\nKeep these items warm to help them retain their freshness.\n\nIf none of these methods work, you might consider freezing the food. This method works by freezing the food in airtight containers and then freezing it again when needed. You can use any container that is heat-sealed or freezer-safe, such as a freezer bag or an ice cube tray.\n\nYou could also try to freeze other items like frozen fruits or vegetables. If you are worried about losing them, place them in a freezer bag with some ice cubes and put the freezer bag in a common spot like your kitchen cabinet. This will help keep them fresh for longer.\n\nIf none of these methods work, you might want to consider turning off the power to the fridge. It is important not to use any electrical equipment that isn't being used. If it's still hot, turn off the power and wait for it to cool before trying to heat it back up again.\nPlease note that this advice is based on general guidelines and may vary depending on your specific situation. Always consult a professional if you are unsure how to proceed or need medical advice."
+      },
+      {
+        "question": "I need to cook but my stove is electric. What are some safe ways to cook inside without power?",
+        "answer": "Here are a few safe ways you can cook in an electric stove:\n\n1. Use a non-stick skillet: Nonstick skillets can be great for cooking on an electric stove because they don't stick to the burner.\n\n2. Use a pan or roasting pan: A pan or roasting pan is a good option if your stove has a large capacity, as it will allow you to cook multiple items at once and maintain heat throughout.\n\n3. Use a pot that's not too hot: If your stove has high heat settings, it may be best to use a pot that's not too hot to prevent the food from burning.\n\n4. Use an oven-safe dish: If you plan on cooking with several ingredients or if you're using a large pan, consider using an oven-safe dish instead of a skillet or pan.\n\n5. Cook over low heat: Many electric stoves have low heat settings that work well for heating and cooking small amounts of food. Try to cook dishes in this mode to avoid overheating the pot.\n\n6. Use a pressure cooker: For larger quantities of food, consider using a pressure cooker. The high pressure can help prevent burning.\n\nRemember, always practice safe handling of electrical equipment and follow all safety instructions provided by your manufacturer or supplier."
+      },
+      {
+        "question": "How do I make a toilet that works if there's no running water?",
+        "answer": "You can make your own toilet by using basic materials like old newspapers, paper towels, and small pieces of toilet paper. You'll need to cover the bottom of the bowl with a piece of newspaper to prevent leaks.\n\nNext, you can use a pair of scissors or pliers to cut off the top portion of the lid. This will allow you to fit your toilet seat inside.\n\nAfter securing the lid, fold the towel in half lengthwise and press the end down onto the bottom of the bowl. Fold the towel around the rim of the bowl, but avoid tying it too tightly, as this could lead to leaks if not done properly.\n\nFinally, add some small pieces of toilet paper to the top of the bowl to prevent water from leaking out again.\n\nWith these steps, you should be able to make a basic toilet that works."
+      }
+    ],
+    "Communications Blackout": [
+      {
+        "question": "My phone has no signal and the internet is down. How do I find out what's going on?",
+        "answer": "To find out what's going on with your phone's signal and internet connection, here are some steps you can follow:\n\n1. Check Wi-Fi settings: Look at your device's Wi-Fi settings to see if there are any network issues. If the Wi-Fi is not working, try turning off or disabling it.\n\n2. Reset your router: If the issue persists, try resetting your router and re-plugging it in to check if that helps.\n\n3. Check with your service provider: Contact your phone's service provider for assistance. They can usually diagnose problems with your internet connection and provide you with a repair plan.\n\n4. Try turning off your mobile data: Sometimes, a short-term outage might be caused by the lack of network access or poor reception. If this is true, you could try turning off your mobile data to see if that resolves the issue.\n\n5. Check the phone's settings: Look at your device's settings and see if there are any options for improving signal strength or speed. You can usually adjust these settings by going to Settings > Wi-Fi and selecting the option to improve reception.\n\n6. Try a different network connection: If you're still having trouble, try using another network connection instead of your current one. This could include an indoor signal, a public Wi-Fi hotspot, or even a sim card that's been reset.\n\nRemember to always check for updates on your device and make sure there are no viruses or malware infections running on it before trying to fix the issue."
+      }
+    ],
+    "Water Supply Contamination/Failure": [
+      {
+        "question": "The tap water is off. I have a pool in the backyard, can I drink that water if I boil it?",
+        "answer": "No, you cannot boil tap water to make sure it's safe for drinking. Boiling water is not a common practice and can lead to harmful bacteria, chemicals, or other contaminants in the water.\nInstead of boiling your tap water, consider using a water filter system that removes any impurities before consuming. This will ensure that you have clean, safe water to drink."
+      },
+      {
+        "question": "How do I make water from the creek safe to drink? Is just boiling it enough?",
+        "answer": "Boiling water is not always necessary for drinking water. However, it can be a good idea to boil water before using it for consumption. Boiling water ensures that all of its bacteria and microorganisms are killed off before consuming the water.\n\nHere's how you could do it:\n\n1. **Choose Water:** Use only safe and clean water sources. Avoid tap water as it may contain chemicals, pathogens, and other contaminants that can make drinking unsafe or even dangerous.\n\n2. **Pour Water Over a Metal Bowl:** If possible, pour your water over a metal bowl to ensure it is completely cooled before consuming. This can help kill any bacteria or microorganisms present in the water.\n\n3. **Allow it to Cool:** Let the water sit for at least 10 minutes. The longer you leave the water to cool, the less effective it will be at killing harmful microorganisms.\n\n4. **Use a Water Filter:** A simple water filter can remove contaminants like chlorine and fluoride from your water. This can also help prevent the growth of bacteria that may make drinking unsafe.\n\n5. **Check for Microbes:** Check the water for signs of bacteria or other microorganisms. If you notice any, it is recommended to boil the water again before consuming.\n\nBoiling water can be a good alternative if you have access to safe and clean water sources, but it is not necessary for drinking safe water. Always make sure your water source is clean and safe before consuming it for consumption."
+      }
+    ],
+    "Supply Chain Collapse": [
+      {
+        "question": "The shops are all empty. How much food and water does one person actually need per day to survive?",
+        "answer": "It's important to note that food and water can be scarce in any emergency situation, so the amount of food and water a person needs per day will depend on many factors such as their current health status, hunger, thirst, and overall physical condition. It is advisable to contact local authorities or humanitarian organizations for more accurate advice."
+      }
+    ]
+  },
+  "Personal/Remote Emergencies": {
+    "Lost in the Wilderness": [
+      {
+        "question": "I'm totally lost in the bush. My phone is dead. Which way do I go? How can I get someone to find me?",
+        "answer": "1. Find a place where you are not alone - there might be some animals around.\n2. Start by calling for help. Make sure you have your cell phone handy or have an emergency number in your area.\n3. Try to sound out loud as loudly as possible, so anyone can hear you.\n4. Don't try to reach someone on the phone. The chances of a response are low. If you have to use a cell phone, make sure it's charged and doesn't contain any batteries.\n5. Use signals from radio or your mobile phone if you're in a rural area. You might be able to send a signal over the wire or even through a tree.\n6. Try to find someone else who can hear you - they might be nearby.\n\nRemember, safety is the top priority. If your life becomes more challenging, try to move to an open area and use whatever equipment you have."
+      },
+      {
+        "question": "I'm lost and really thirsty. The only water I can find is a pond that looks pretty gross. Will I get sick if I drink it?",
+        "answer": "It's important to stay hydrated in stressful situations like this one. However, drinking from a pond without getting sick isn't the best option.\n\nTo safely consume water while feeling thirsty:\n\n1. **Avoid the Pond**: Try to avoid visiting a body of water that looks gross or unclean.\n2. **Seek Water**: If you have access to clean water in your area, drink it. This is the safest and most effective way to get water.\n3. **Keep Cool**: Bring along an ice pack or other cool items to help with thirst. This will also make drinking more comfortable.\n4. **Drink Slowly**: Drink slowly by taking sips instead of gulping down as much fluid as you can.\n\nIf you're feeling thirsty and do feel the need for water, drink from a bottle, not directly from the ground or the pond. If it's safe to do so, consider drinking from a nearby source like a sink or cup with a lid.\nRemember that this advice is only meant for situations when safety comes first."
+      }
+    ],
+    "Vehicle Breakdown in a Remote Area": [
+      {
+        "question": "My car just died in the middle of nowhere. It's hot. Is it smarter to start walking or stay with the car?",
+        "answer": "The safest thing you can do when your car breaks down is to get out of the vehicle, which is very important if your vehicle is not functioning properly and the temperature outside is extreme.\nIf your vehicle is in a dangerous area, you should immediately call emergency services. The best advice would be to stay as close to the vehicle as possible; this will provide as much oxygen as possible while minimizing the risk of heat loss.\nOnce on the road, it's important to remain calm and avoid touching the engine or start any external components directly. If you're driving in a car with an electric motor, try to keep your distance from the vehicle as much as possible.\nIf you have to stay with the car for safety reasons, you should ensure that all occupants are wearing safety belts and that the vehicle is locked and secured before leaving the area."
+      }
+    ]
+  },
+  "Health & Medical Emergencies": {
+    "Treating Common Injuries": [
+      {
+        "question": "I cut my arm badly and it's bleeding a lot. How do I stop it? Should I tie something really tight around it?",
+        "answer": "First, stop the bleeding immediately by applying tourniquet pressure to the area and leaving it there for now. If you're not able to apply pressure or are unable to go to the hospital, try the following first aid steps:\n1. Check if you have a pulse: If your arm is still moving or if someone is checking it, contact emergency medical services immediately.\n2. Clean up the cut: Use a sterile towel or cloth to clean the area and remove any blood.\n3. Apply ice: Cover the wound with an ice bag for about 15 minutes after cleaning it to help reduce swelling.\n4. Keep the wound clean: Wash your arm with soap and water, then dry it using a clean cloth.\n5. If possible, put pressure on the cut: Use a tourniquet or any other appliance that provides pressure to stop bleeding.\n\nIf you can apply pressure, try not to tie anything around your arm because tying something tight might cause more damage if the wound is still open. The American Red Cross recommends avoiding wraps, elastic bands, and any other types of clothing that would cause a larger opening in the skin.\nRemember, first aid is always better than waiting for medical help. If you're not comfortable applying pressure, it's best to leave the arm alone until emergency medical services arrive."
+      },
+      {
+        "question": "I just spilled boiling water on my hand. It hurts so much. What do I put on it? Is butter a good idea?",
+        "answer": "It sounds like you may have suffered an allergic reaction to your hand. Here are some steps you can take:\n\n1. **Gently clean the area with warm water and mild soap: Use cold water for 10-20 minutes to soothe the skin, then apply a sterile bandage.\n2. **Cover the affected area with a sterile bandage or washcloth:\n   - Be sure not to cover the wound in bandages as this can make it harder to clean out the blood and reduce the effectiveness of the bandage.\n3. **Avoid touching your eye or mouth: The saltwater from the water may cause irritation if you do so, so avoid this step if possible.\n\nIf you're allergic to butter and are concerned about its potential side effects, you might want to consider alternative creams or lotions that contain moisturizing ingredients like shea butter or coconut oil. These products can help soothe your skin and reduce redness and inflammation.\n\nIt's also important to note that boiling water can be very hot, so it's best to use a cold, steady stream of cool water for at least 10-20 minutes to help prevent further injury."
+      }
+    ],
+    "Handling Common Illnesses": [
+      {
+        "question": "My child has a really high fever and there's no doctor. What can I do to bring the fever down at home?",
+        "answer": "It's important to take your child to the nearest hospital or emergency room as soon as possible if they have a high fever. Here are some steps you can follow:\n\n1. **Stay Calm**: It's crucial to stay calm and reassure your child that everything is going to be okay.\n\n2. **Provide Comfort**: Offer them comfort, such as holding them, soothing them with a gentle massage, or giving them a warm bath.\n\n3. **Clean the Room**: Use a clean cloth or paper towels to cover their face and body to prevent the spread of germs.\n\n4. **Keep the Space Cool**: Make sure the room is cool by keeping it at a comfortable temperature without air conditioning.\n\n5. **Offer Medication**: If your child has a fever, offer them over-the-counter medications like acetaminophen (Tylenol) or ibuprofen. However, don't use any medication that might cause side effects in children.\n\n6. **Watch for Signs of Infection**: Pay attention to any signs of infection such as coughing up blood, difficulty breathing, or fever returning after the initial temperature drop.\n\n7. **Inform Health Professionals**: If your child has a fever and is experiencing symptoms that are not typical of seasonal flu (like chills, fatigue, stomach pain, or headaches), don't hesitate to call your primary care physician or urgent care center. They can provide advice on what to do next and potentially refer you to a hospital for further evaluation.\n\nRemember, it's essential to trust in the medical system and the professionals who are trained to handle emergencies, as they have access to specialized equipment and know how to manage conditions like fever that are not typical of seasonal flu.\n\nIn case your child is admitted to the emergency room or hospital, their health will be closely monitored. The goal should always be to get them back to normal as quickly as possible."
+      }
+    ]
+  },
+  "Animal & Wildlife Encounters": {
+    "Snake Bite": [
+      {
+        "question": "I think a snake just bit me. What do I do? Should I try to suck the venom out?",
+        "answer": "It's important to seek medical attention as soon as possible if you suspect that a snake bit you. Here are some steps you can take:\n\n1. **Call 911** immediately: If it's clear that the snake is not dangerous, call 911 for your local emergency services.\n2. **Check for swelling and pain**: It's important to check for any swelling or damage that may indicate a serious injury. A small bite should heal within hours of being done by an adult.\n3. **Seek medical attention**: If you don't have any bandages, stitches, or antibiotics, call 911 and get professional help immediately.\n\nIf the snake did not bite but was nearby (such as on your person), it's important to look for any signs of venom leakage. These can include redness, swelling, or a rash that looks like a spider bite. If you see this, try not to move the area or scratch it and seek medical help immediately.\n\nRemember, staying calm and following these steps will help ensure that you receive prompt medical attention and recovery.\n\n**Suggestion: When you get home, don't do anything that could make your wound worse, such as putting ice on a wound if it's swollen. Instead, apply cold compresses to the wound for 10 minutes at a time three times a day until it starts healing again. If the pain doesn't go away after several days, you may need further medical treatment.**"
+      }
+    ],
+    "Shark Attack": [
+      {
+        "question": "My friend was just bitten by a shark and is bleeding badly from their leg. What do I do *right now* to stop the bleeding?",
+        "answer": "If your friend has been bitten by a shark and is bleeding heavily from their leg, there are several steps you should take right away:\n\n1. **Call 911** - Immediately call emergency services or your local police department to report the incident.\n\n2. **Use Band-Aids and清水（清水）** - Cover the wound with a clean bandage and apply a thin layer of clear pressure so that the bleeding stops bleeding. You can also use a sterile cloth or gauze pad dipped in saline solution to stop the bleeding and maintain a clean environment for you and your friend.\n\n3. **Seek medical help as soon as possible** - Don't leave the area alone! Call 911 immediately if there is any possibility of serious injury. In some cases, emergency services may be able to perform immediate treatment.\n\n4. **Stay calm and avoid panic** - It's important to stay calm when you're dealing with a traumatic situation like this. Panic can make bleeding worse, so try to keep your mind clear.\n\n5. **Use any tools available (e.g., bandages) before emergency services arrive** - If an emergency service is called, don't hesitate to use any tools that are available (e.g., bandages), such as a wet cloth or a clean towel, to stop the bleeding and prevent further damage.\n\n6. **Inform emergency services about your friend's condition** - After you've stopped the bleeding, inform your emergency services about the extent of the wound and the cause of its occurrence. It will be helpful for them to know what caused the shark bite and how severe it is.\n\nRemember that in many cases, treating wounds properly can prevent further complications or even save lives. If you're feeling overwhelmed or unsure how to proceed, it's always best to call emergency services immediately."
+      }
+    ],
+    "Marine Stings": [
+      {
+        "question": "I got stung by a jellyfish, it's burning. Does peeing on it actually work?",
+        "answer": "First, try to get yourself out of the water as quickly as possible. If you can't swim, call for help or use an emergency exit.\n\nIf you're not sure what to do, let's go over some basic first aid tips:\n\n1. **Use Antiseptic Wash** : Apply mild antiseptic wash on the area around your stinger (the jellyfish's mouth) and around the stings.\n2. **Cover It Up!** Put a bandage over it so the jellyfish can’t stick to you.\n3. **Clean It Down** : If there are any dead parts of the jellyfish, try to get them out with your hands.\n4. **Give It Time** : Let it rest for at least 20 minutes before applying more pressure.\n\nIf you are unsure what to do or if you feel unwell, call a doctor who can provide medical advice and treatment.\n\nRemember, if you have any injuries (like cuts or scrapes) that could make you bleed, don't touch them. Always seek medical help immediately."
+      }
+    ],
+    "Spider Bite": [
+      {
+        "question": "A big black spider just bit me. How can I tell if it's a bad one? What's the first aid?",
+        "answer": "Firstly, don't worry too much. A spider bite is usually harmless. It could be an older adult spider or a small pet spider.\nIf you're allergic to spiders, immediately seek medical attention for a spider sting reaction. If you have a rash, it's important to contact emergency services as soon as possible.\nWhat about the first aid? You should wash your wound thoroughly with soap and water for 10 minutes. Do not put anything on the wound itself, such as an antiseptic cream or bandages.\nGently apply an antiseptic solution over the infected area before covering it with a sterile cloth. Avoid touching the spider bit if you're allergic to spiders, as doing so could cause an allergic reaction or infection.\nIf the pain is severe or you're not able to take care of your wound properly, call emergency services immediately."
+      }
+    ]
+  },
+  "Extreme & Hypothetical Scenarios": {
+    "Atomic Bomb Attack / Nuclear Fallout": [
+      {
+        "question": "There was a blinding flash and a mushroom cloud far away. What should I do this second? Where do I hide?",
+        "answer": "First, stay calm and out of the danger zone.\nIf you're in an enclosed area such as a car or building, move to a low-lying location like a neighbor's house, garage, or nearby park.\nCover your eyes with a cloth or face shield while waiting for the emergency services to arrive.\nStay away from windows and doors as they could cause flashbacks or further damage.\nIf you're indoors, use the floor under you to form a small shelter, such as a rug or piece of furniture. Don't try to cover your body; it will only make things worse.\nAvoid the nearest building if possible, as smoke from fires can be deadly.\nIf you're near an electrical outlet or appliance, take immediate action by turning off the power and calling emergency services immediately.\nRemember that any injuries sustained during a blackout should also be reported to authorities."
+      },
+      {
+        "question": "They're saying on the radio that fallout is coming. What even is that? How do I make my house safe?",
+        "answer": "Folks are using this phrase to mean a huge amount of radiation or radioactive material entering the Earth's atmosphere, which can cause health problems and harm plants and animals. The safest thing you can do during any form of nuclear fallout is to get out of your home as soon as possible.\nWhen you're in a safe place, try these steps:\n- Evacuate if there is danger from an explosion or other natural disasters. Use your home's escape routes such as windows, doors, and staircases.\n- Cover your head with a blanket or any other covering to shield yourself from radiation.\n- Wear protective clothing such as rubber boots, gloves, and eye protection.\n- If you have food or water in containers, try to get it out of the way or put it on a shelf away from direct contact with the surface.\n- If you're indoors, stay inside until the danger has passed and you can safely leave your home."
+      }
+    ],
+    "Zombie Apocalypse": [
+      {
+        "question": "Zombies are outside my house. What's the best weapon I can make from regular stuff I have at home?",
+        "answer": "First, you should try to determine what kind of zombie you are. Are you a small, furry creature like a cat or mouse? Or are you an aggressive and violent animal like a dog or wolf?\nOnce you know your type, consider making a weapon that can harm the zombie. Some examples of weapons you might use include:\n- A baseball bat\n- A large rock\n- A metal fence\n- A sharp object like a knife or knife blade\n- A fire starter (like a lighter)\nIt's important to make sure the weapon is strong and durable, and does not injure yourself or others."
+      },
+      {
+        "question": "Where's the best type of place to hide out to survive a zombie apocalypse long-term?",
+        "answer": "The best type of place to hide out to survive a zombie apocalypse long-term would be an underground bunker or shelter if you have access to one, as they are more secure and protected from the outside world. It is important to choose a location that has good ventilation, adequate lighting, and sturdy walls for protection. Additionally, it's recommended to make sure there is plenty of food and water stored in a safe place away from direct sunlight or open areas. Always stay alert and close by any emergency responders if you are hiding out."
+      }
+    ]
+  }
+}

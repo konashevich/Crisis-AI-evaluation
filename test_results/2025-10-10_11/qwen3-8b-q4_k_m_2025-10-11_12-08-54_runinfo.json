@@ -1,0 +1,20 @@
+{
+  "model_name": "qwen3-8b@q4_k_m",
+  "model_id": "qwen3-8b@q4_k_m",
+  "model_publisher": "lmstudio-community",
+  "model_arch": "qwen3",
+  "model_quantization": "Q4_K_M",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\pprp\\DeepSeek-R1-0528-Qwen3-8B-Q4_K_M-GGUF\\deepseek-r1-0528-qwen3-8b-q4_k_m-00001-of-00006.gguf",
+  "model_size_bytes": 1000947392,
+  "model_size_gb": 0.9322049021720886,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-11T11:43:17",
+  "finished_at": "2025-10-11T12:08:54",
+  "duration_seconds": 1536,
+  "duration_mmss": "25:36",
+  "results_file": "test_results\\2025-10-10_11\\qwen3-8b-q4_k_m_2025-10-11_12-08-54.json",
+  "model_info_from_response": null
+}

@@ -1,0 +1,20 @@
+{
+  "model_name": "qwen2.5-coder-1.5b-instruct",
+  "model_id": "qwen2.5-coder-1.5b-instruct",
+  "model_publisher": "ggml-org",
+  "model_arch": "qwen2",
+  "model_quantization": "Q8_0",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\ggml-org\\Qwen2.5-Coder-1.5B-Instruct-Q8_0-GGUF\\qwen2.5-coder-1.5b-instruct-q8_0.gguf",
+  "model_size_bytes": 1646573120,
+  "model_size_gb": 1.5334907174110413,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-11T11:03:32",
+  "finished_at": "2025-10-11T11:05:58",
+  "duration_seconds": 146,
+  "duration_mmss": "02:26",
+  "results_file": "test_results\\2025-10-10_11\\qwen2.5-coder-1.5b-instruct_2025-10-11_11-05-58.json",
+  "model_info_from_response": null
+}

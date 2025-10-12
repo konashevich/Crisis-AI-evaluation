@@ -1,0 +1,20 @@
+{
+  "model_name": "qwen3-4b-2507@q4_k_m",
+  "model_id": "qwen/qwen3-4b-2507",
+  "model_publisher": "qwen",
+  "model_arch": "qwen3",
+  "model_quantization": "Q4_K_M",
+  "model_file_path": null,
+  "model_size_bytes": null,
+  "model_size_gb": null,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-11T10:07:57",
+  "finished_at": "2025-10-11T10:13:07",
+  "duration_seconds": 310,
+  "duration_mmss": "05:10",
+  "results_file": "test_results\\2025-10-10_11\\qwen3-4b-2507-q4_k_m_2025-10-11_10-13-07.json",
+  "model_info_from_response": null
+}

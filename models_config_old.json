@@ -1,0 +1,157 @@
+{
+  "last_updated": "2025-10-10T22:16:45.559738",
+  "models": [
+    {
+      "id": "unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF/DeepSeek-R1-0528-Qwen3-8B-Q4_K_S.gguf",
+      "display_name": "deepseek-r1-0528-qwen3-8b@q4_k_s"
+    },
+    {
+      "id": "unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF/DeepSeek-R1-0528-Qwen3-8B-Q6_K.gguf",
+      "display_name": "deepseek-r1-0528-qwen3-8b@q6_k"
+    },
+    {
+      "id": "gemma-2-2b-it",
+      "display_name": "gemma-2-2b-it"
+    },
+    {
+      "id": "google/gemma-3-12b",
+      "display_name": "google/gemma-3-12b@q4_k_m"
+    },
+    {
+      "id": "google/gemma-3-12b",
+      "display_name": "google/gemma-3-12b@q6_k"
+    },
+    {
+      "id": "google/gemma-3-12b",
+      "display_name": "google/gemma-3-12b@q8_0"
+    },
+    {
+      "id": "google/gemma-3n-e4b",
+      "display_name": "google/gemma-3n-e4b@q4_k_m"
+    },
+    {
+      "id": "google/gemma-3n-e4b",
+      "display_name": "google/gemma-3n-e4b@q6_k"
+    },
+    {
+      "id": "google/gemma-3n-e4b",
+      "display_name": "google/gemma-3n-e4b@q8_0"
+    },
+    {
+      "id": "llama-3.2-3b-instruct",
+      "display_name": "llama-3.2-3b-instruct"
+    },
+    {
+      "id": "microsoft/phi-4",
+      "display_name": "microsoft/phi-4@q6_k"
+    },
+    {
+      "id": "microsoft/phi-4-mini-reasoning",
+      "display_name": "microsoft/phi-4-mini-reasoning@q4_k_m"
+    },
+    {
+      "id": "microsoft/phi-4-mini-reasoning",
+      "display_name": "microsoft/phi-4-mini-reasoning@q8_0"
+    },
+    {
+      "id": "microsoft/phi-4-reasoning-plus",
+      "display_name": "microsoft/phi-4-reasoning-plus@q4_k_m"
+    },
+    {
+      "id": "microsoft/phi-4-reasoning-plus",
+      "display_name": "microsoft/phi-4-reasoning-plus@q6_k"
+    },
+    {
+      "id": "bartowski/Phi-3.5-mini-instruct-GGUF/Phi-3.5-mini-instruct-Q4_K_M.gguf",
+      "display_name": "phi-3.5-mini-instruct@q4_k_m"
+    },
+    {
+      "id": "bartowski/Phi-3.5-mini-instruct-GGUF/Phi-3.5-mini-instruct-Q8_0.gguf",
+      "display_name": "phi-3.5-mini-instruct@q8_0"
+    },
+    {
+      "id": "qwen/qwen3-4b-2507",
+      "display_name": "qwen/qwen3-4b-2507@q4_k_m"
+    },
+    {
+      "id": "qwen/qwen3-4b-2507",
+      "display_name": "qwen/qwen3-4b-2507@q6_k"
+    },
+    {
+      "id": "qwen/qwen3-4b-2507",
+      "display_name": "qwen/qwen3-4b-2507@q8_0"
+    },
+    {
+      "id": "qwen/qwen3-4b-thinking-2507",
+      "display_name": "qwen/qwen3-4b-thinking-2507@q4_k_m"
+    },
+    {
+      "id": "qwen/qwen3-4b-thinking-2507",
+      "display_name": "qwen/qwen3-4b-thinking-2507@q6_k"
+    },
+    {
+      "id": "qwen/qwen3-4b-thinking-2507",
+      "display_name": "qwen/qwen3-4b-thinking-2507@q8_0"
+    },
+    {
+      "id": "qwen2-500m-instruct",
+      "display_name": "qwen2-500m-instruct"
+    },
+    {
+      "id": "qwen2.5-1.5b-instruct",
+      "display_name": "qwen2.5-1.5b-instruct"
+    },
+    {
+      "id": "qwen2.5-coder-1.5b-instruct",
+      "display_name": "qwen2.5-coder-1.5b-instruct"
+    },
+    {
+      "id": "qwen2.5-coder-3b-instruct-ts",
+      "display_name": "qwen2.5-coder-3b-instruct-ts"
+    },
+    {
+      "id": "qwen3-0.6b",
+      "display_name": "qwen3-0.6b"
+    },
+    {
+      "id": "qwen3-1.7b",
+      "display_name": "qwen3-1.7b"
+    },
+    {
+      "id": "lmstudio-community/Qwen3-4B-GGUF/Qwen3-4B-Q4_K_M.gguf",
+      "display_name": "qwen3-4b@q4_k_m"
+    },
+    {
+      "id": "lmstudio-community/Qwen3-4B-GGUF/Qwen3-4B-Q6_K.gguf",
+      "display_name": "qwen3-4b@q6_k"
+    },
+    {
+      "id": "lmstudio-community/Qwen3-4B-GGUF/Qwen3-4B-Q8_0.gguf",
+      "display_name": "qwen3-4b@q8_0"
+    },
+    {
+      "id": "lmstudio-community/Qwen3-8B-GGUF/Qwen3-8B-Q4_K_M.gguf",
+      "display_name": "qwen3-8b@q4_k_m"
+    },
+    {
+      "id": "lmstudio-community/Qwen3-8B-GGUF/Qwen3-8B-Q6_K.gguf",
+      "display_name": "qwen3-8b@q6_k"
+    },
+    {
+      "id": "lmstudio-community/Qwen3-8B-GGUF/Qwen3-8B-Q8_0.gguf",
+      "display_name": "qwen3-8b@q8_0"
+    },
+    {
+      "id": "lmstudio-community/SmolLM2-1.7B-Instruct-GGUF/SmolLM2-1.7B-Instruct-Q4_K_M.gguf",
+      "display_name": "smollm2-1.7b-instruct@q4_k_m"
+    },
+    {
+      "id": "lmstudio-community/SmolLM2-1.7B-Instruct-GGUF/SmolLM2-1.7B-Instruct-Q8_0.gguf",
+      "display_name": "smollm2-1.7b-instruct@q8_0"
+    },
+    {
+      "id": "smollm2-360m-instruct",
+      "display_name": "smollm2-360m-instruct"
+    }
+  ]
+}

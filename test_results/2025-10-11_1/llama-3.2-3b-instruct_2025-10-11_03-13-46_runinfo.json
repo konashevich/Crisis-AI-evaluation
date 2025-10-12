@@ -1,0 +1,20 @@
+{
+  "model_name": "llama-3.2-3b-instruct",
+  "model_id": "llama-3.2-3b-instruct",
+  "model_publisher": "bartowski",
+  "model_arch": "llama",
+  "model_quantization": "Q4_K_M",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\bartowski\\Llama-3.2-3B-Instruct-GGUF\\Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+  "model_size_bytes": 2019377696,
+  "model_size_gb": 1.880692034959793,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-11T03:10:42",
+  "finished_at": "2025-10-11T03:13:46",
+  "duration_seconds": 183,
+  "duration_mmss": "03:03",
+  "results_file": "test_results\\2025-10-10_11\\llama-3.2-3b-instruct_2025-10-11_03-13-46.json",
+  "model_info_from_response": null
+}

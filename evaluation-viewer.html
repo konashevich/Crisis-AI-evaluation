@@ -198,21 +198,47 @@
             loadingIndicator.classList.add('active');
 
             try {
-                // Try to load the specific file we know exists
-                const knownFile = 'gemini_evaluation_report_2025-10-10_12-31-53.json';
-                try {
-                    const response = await fetch(`eval_results/${knownFile}`);
-                    if (response.ok) {
-                        const data = await response.json();
-                        const dateTime = parseReportDateTime(knownFile);
-                        reports[knownFile] = {
-                            id: knownFile,
-                            data: data,
-                            dateTime: dateTime
-                        };
+                // First, load the index file to discover all available reports
+                const indexResponse = await fetch('eval_results/reports_index.json');
+                
+                if (!indexResponse.ok) {
+                    throw new Error('Could not load reports index. Please run: python generate_reports_index.py');
+                }
+
+                const index = await indexResponse.json();
+                const reportFiles = index.reports || [];
+
+                if (reportFiles.length === 0) {
+                    throw new Error('No evaluation reports found in index');
+                }
+
+                console.log(`Found ${reportFiles.length} report(s) in index`);
+
+                // Load all reports
+                const reports = {};
+                for (const filename of reportFiles) {
+                    try {
+                        const response = await fetch(`eval_results/${filename}`);
+                        if (response.ok) {
+                            const data = await response.json();
+                            const dateTime = parseReportDateTime(filename);
+                            
+                            if (dateTime) {
+                                reports[filename] = {
+                                    id: filename,
+                                    data: data,
+                                    dateTime: dateTime
+                                };
+                                console.log(`Loaded: ${filename}`);
+                            } else {
+                                console.warn(`Could not parse date/time from filename: ${filename}`);
+                            }
+                        } else {
+                            console.warn(`Could not load ${filename}: ${response.status}`);
+                        }
+                    } catch (error) {
+                        console.error(`Error loading ${filename}:`, error.message);
                     }
-                } catch (error) {
-                    console.log(`Could not load ${knownFile}:`, error.message);
                 }
 
                 reportsData = reports;

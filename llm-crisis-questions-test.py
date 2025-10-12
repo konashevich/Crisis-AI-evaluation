@@ -93,12 +93,12 @@ def get_llm_response(question):
             {"role": "user", "content": question}
         ],
         "temperature": 0.7, # A balanced value for creativity vs. determinism.
-        "max_tokens": 4096,
+        "max_tokens": 2048,  # Reduced from 4096 to prevent overly long reasoning chains
         "stream": False
     }
 
     try:
-        response = requests.post(LM_STUDIO_API_URL, headers=headers, json=payload, timeout=300) # 5-minute timeout
+        response = requests.post(LM_STUDIO_API_URL, headers=headers, json=payload, timeout=600) # 10-minute timeout for reasoning models
         response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
         
         response_json = response.json()

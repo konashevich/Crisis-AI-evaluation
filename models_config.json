@@ -1,0 +1,29 @@
+{
+  "last_updated": "2025-10-11T22:34:17.682499",
+  "models": [
+    {
+      "id": "microsoft/phi-4-reasoning-plus",
+      "display_name": "microsoft/phi-4-reasoning-plus@q4_k_m"
+    },
+    {
+      "id": "microsoft/phi-4-reasoning-plus",
+      "display_name": "microsoft/phi-4-reasoning-plus@q6_k"
+    },
+    {
+      "id": "lmstudio-community/Qwen3-8B-GGUF/Qwen3-8B-Q8_0.gguf",
+      "display_name": "qwen3-8b@q8_0"
+    },
+    {
+      "id": "lmstudio-community/SmolLM2-1.7B-Instruct-GGUF/SmolLM2-1.7B-Instruct-Q4_K_M.gguf",
+      "display_name": "smollm2-1.7b-instruct@q4_k_m"
+    },
+    {
+      "id": "lmstudio-community/SmolLM2-1.7B-Instruct-GGUF/SmolLM2-1.7B-Instruct-Q8_0.gguf",
+      "display_name": "smollm2-1.7b-instruct@q8_0"
+    },
+    {
+      "id": "smollm2-360m-instruct",
+      "display_name": "smollm2-360m-instruct"
+    }
+  ]
+}

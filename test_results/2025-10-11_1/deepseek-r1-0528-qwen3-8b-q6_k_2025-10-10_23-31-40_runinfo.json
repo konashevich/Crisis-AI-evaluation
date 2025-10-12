@@ -1,0 +1,20 @@
+{
+  "model_name": "deepseek-r1-0528-qwen3-8b@q6_k",
+  "model_id": "deepseek-r1-0528-qwen3-8b@q6_k",
+  "model_publisher": "unsloth",
+  "model_arch": "qwen3",
+  "model_quantization": "Q6_K",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\unsloth\\DeepSeek-R1-0528-Qwen3-8B-GGUF\\DeepSeek-R1-0528-Qwen3-8B-Q6_K.gguf",
+  "model_size_bytes": 6725900800,
+  "model_size_gb": 6.263983249664307,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-10T22:36:32",
+  "finished_at": "2025-10-10T23:31:40",
+  "duration_seconds": 3307,
+  "duration_mmss": "55:07",
+  "results_file": "test_results\\2025-10-10_11\\deepseek-r1-0528-qwen3-8b-q6_k_2025-10-10_23-31-40.json",
+  "model_info_from_response": null
+}

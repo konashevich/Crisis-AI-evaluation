@@ -1,0 +1,180 @@
+{
+  "Natural Disasters": {
+    "Bushfire/Wildfire": [
+      {
+        "question": "There's a huge fire coming, the sky is orange. What do I do *right now*? Should I leave or stay?",
+        "answer": "It is recommended to leave the area where there are fires. The risk of being exposed to flames and smoke is high when there are fires in the area, so it's better to avoid this area. However, if you can't leave the area and you have no way to escape, it's important not to stay inside the building where you would be exposed to fires."
+      },
+      {
+        "question": "I have to evacuate for a bushfire in 5 minutes. What are the absolute most important things to grab?",
+        "answer": "The absolute most important thing to grab when you need to evacuation during a wild fire is an emergency bag. This bag should contain your important documents, such as ID cards and health records, cash, and any other items you want to take."
+      },
+      {
+        "question": "The fire has passed. The water from my tap tastes funny. Is it safe to drink?",
+        "answer": "It is safe todrink the tap water. However, you should avoid using this tap water for cooking or consuming food. The smell of the tap water could be due to gases in the groundwater, such as hydrogen cyanide."
+      }
+    ],
+    "Severe Flooding": [
+      {
+        "question": "My house is surrounded by water and it's getting higher. How do I get out? Is it safe to swim?",
+        "answer": "It is not safe to swim when your home is being inundated by sea levels and flooding is expected."
+      },
+      {
+        "question": "My car stalled on a flooded road and water is coming in. What should I do? Wait here?",
+        "answer": "Wait for several hours at least. If your car has an automatic emergency release device or a winch hook, use those to pull away from the flooded road. If you cannot pull away, you need to call for help."
+      }
+    ],
+    "Major Storm/Cyclone": [
+      {
+        "question": "The roof is making scary noises in this cyclone. Where is the safest room in the house to hide?",
+        "answer": "The safest room to hide during acyclone is the lower floor, as it is typically the first floor where there are no windows. The ground floor can be where you would find the most stable parts of your building."
+      },
+      {
+        "question": "The storm is over but my phone is dead and the power is out. How can I get news about what's happening?",
+        "answer": "First, make sure your phone is fully-charger. Then, you can try to call a friend or family member using their number. If they have a cell, they will probably be able to provide more accurate information than you can."
+      }
+    ],
+    "Earthquake": [
+      {
+        "question": "Everything just shook like crazy. Is it over? Should I run outside now?",
+        "answer": "The question seems to contain an incorrect concept related to emergency situations. You are describing what you see when a person is understress and has no special training. In this case, it's not clear what the user is trying to describe.\n\nTo provide a more accurate response, let's assume that the user is in an emergency situation without access to authorities or emergency services, but they want to make sure they are safe.\n\nFirst, if the user is already outside, we need to ensure their safety. If they are within a dangerous area or if there are potential risks involved, we should guide them to return to a safe location.\n\nIf the user is within a safe location, we need to check for signs of danger in the environment. For example, if there are unstable objects that may fall, we can tell the user to avoid those areas and head back to a safe location.\n\nAfter checking the safety, we can provide a simple step-by-step instruction. In this case, if the user is understress, we can tell them to take care of their health, including proper food consumption, regular exercise, and sufficient sleep. We can also emphasize the importance of avoiding unnecessary contact with other people as they may be exposed to potential risks.\n\nAdditionally, we can provide some general tips on handlingstress. This includes methods for managing emotion, such as deepbreathing and visualization, as well as tools like guided meditations or audio files that help to reset the mind. We can also recommend some resources for further help, such as support groups or online community groups.\n\nOverall, we need to provide a safe environment for the user to understand their situation and provide guidance on how to handle different aspects of it."
+      },
+      {
+        "question": "I think my neighbor is trapped under some rubble, I can hear them. Is it safe to try and move stuff to get to them?",
+        "answer": "The most important thing you can do if a neighbor is trapped under some rubble is to call 911 immediately. It's always better to be safe than sorry.\n\nIf you have to move the neighbors out, it's better to use a broom or dustpan instead of your hands to avoid getting any dust in your face. Try and avoid moving neighbors with broken bones, head, or arm bone to avoid further damage.\n\nOnce they are safe, make sure to check on them periodically. If you see them still trapped under the rubble, try to move them out again using a broom or dustpan.\n\nMake sure to notify an emergency worker if they can't be moved out."
+      }
+    ],
+    "Severe Winter Storm/Blizzard": [
+      {
+        "question": "My car is stuck in deep snow on a back road. Should I try to walk for help or just wait inside the car? It's getting really cold.",
+        "answer": "The first step is to ensure your safety by taking care of any health needs, like checking if you have food and water to keep you hydrated. \n\nNext, it is important to avoid being trapped in a deep freeze as long as possible. If there are no traffic restrictions, and there's no danger of getting caught in an avalanche of cars or traffic, it would be better to walk for help.\n\nIf you see a car with the same make, model, and vin as your own, and if they have any passengers inside the car, it's probably best not to attempt to exchange them. If the person driving is able to move safely, try to get in their car. Otherwise, pull off the road into a safe area.\n\nIf you can't see another car with the same make, model, or vin as your own and there are no traffic restrictions, it's better to wait inside the car. This will keep you away from traffic while waiting for help.\n\nIf there are traffic restrictions in place, like if the back road is closed to traffic due to an avalanche of cars, try to find a way around them if possible.\n\nRemember that during a freeze emergency, it is important not to use your cell phone as it can be easily disconnecteded."
+      },
+      {
+        "question": "The power's out and it's freezing in my house. How can I stay warm without setting the place on fire?",
+        "answer": "First, make sure you have a functioning emergency exit from your home in case you need to leave fast.\n\nNext, check if there are any other people at your home. If not, you should call 911 immediately. This will alert authorities about the emergency and get them to come help you.\n\nIf you can stay inside and keep the power turned on, you should do that. This is important because it provides hot water for cleaning up outside or handling the remaining food in your freezer. If there are children in the home, you need to make sure they have enough food and hot water to avoid getting very dizzy or making bad health choices.\n\nIf you can't stay inside, get outside and go to a public space with air-conditioning if possible. Otherwise, find an open area where you can cover your head to keep from getting cold.\n\nYou should also have a strategy to handle the time when the power is out for multiple hours, such as having a non-gas cooking method in place like using a gas generator or a battery backup for your fridge.\n\nFinally, make sure you keep track of the time you are outside. If it gets dark, if you see people starting to collapse and get very dizzy, or if you see children in danger, make sure to leave immediately and head to the nearest public space with air-conditioning."
+      }
+    ]
+  },
+  "Infrastructure & Technical Failures": {
+    "Extended Power Grid Failure (Blackout)": [
+      {
+        "question": "The power has been out for a day. All the food in my fridge is going to spoil. What can I save and how?",
+        "answer": "The power has been out for a day, which means you have no access to generators, backup power or emergency generators at your home. This is an emergency, so you need to save what you have on hand.\n\nIn order to save food, you should first check if any of the food in your fridge has already expired. If it has, throw away those items. This will keep you safe and make sure that you don't consume expired food.\n\nIf there are no expiration dates on the remaining food in your fridge, you can save them as well. However, be careful when saving food without expiration dates. Depending on the type of food you have, some can be saved for a few days, while others may need to be thrown away.\n\nHere's an example of how to save food:\n\n1. Save any food that has expired before the power was turned off.\n2. Save any food that has no expiration date or is not yet marked as expired.\n3. Once the power is restored, you can safely consume the saved food.\n4. If there are other emergency situations such as a fire, you may want to save certain foods that will be safe in fires.\n\nPlease note that this is just an example and may need to be adapted based on your specific requirements and available food in your fridge."
+      },
+      {
+        "question": "I need to cook but my stove is electric. What are some safe ways to cook inside without power?",
+        "answer": "The best way to safely prepare food in situations where your stovem is electric is by using airtight containers and keeping the stovem turned off, as flames will cause electrocution when cooking on an electric stovem.\n\nThe next step is to keep your windows closed if they are open. If they are not open already, make sure you close them before proceeding.\n\nNext, we can use a litany of steps below to safely prepare food:\n\n1. Wrap your food in airtight container.\n\n2. Use a covered casser or a Dutch press.\n\n3. Place the containers outside of windows using hooks or brackets and keep the stovem turned off.\n\n4. If you have a large amount of food, use a deep freeze container.\n\n5. If you want to serve hot meals, use a deep freezer container.\n\n6. If there is no way to close the windows, cover your entire home with a sheet of fabric.\n\n7. Start cooking using the ingredients you have on hand.\n\n8. When done, when it’s time to serve your family meals, serve them in an emergency meal tray.\n\n9. Get your family back together for meals and make sure they get something health to eat.\n\n10. If you want to use a stovem with gas, you will need to take the same steps as mentioned above except you will also need to have a backup generator."
+      },
+      {
+        "question": "How do I make a toilet that works if there's no running water?",
+        "answer": "To make a toilet that works without running water, you can use an inverted bucket. This means you need to have a bucket with a long handle that allows you to hold it vertically.\n\nFirst, collect the buckets needed: one for the solid part of your toilet (the ureteral bucket) and another for the fluid part (the bucket). It is recommended to get a bucket with a long handle from a hardware store.\n\nNext, construct a container. You can use a large container with a bottom that holds about 10-25 litters of water. The depth of the container should be at least twice as deep as the height of your ureteral bucket (if you have a rectangular container, it should be at least 4 times as deep).\n\nFill up the container with water from a nearby source, such as a tap or a well.\n\nConnect the two buckets to the container using a piece of wire. Make sure to secure the handles of the buckets inside the container to prevent them from floating.\n\nFinally, you have made your own toilet that works without running water.\n\nNote: This is just an example and may not be applicable in all situations."
+      }
+    ],
+    "Communications Blackout": [
+      {
+        "question": "My phone has no signal and the internet is down. How do I find out what's going on?",
+        "answer": "In situations where there are no signals and the internet is down, you can check if there is a local radio or TV available for emergency purposes. You can also listen to a radio broadcast or TV with a different channel. This will provide information about the current status of the area and any warnings or updates."
+      }
+    ],
+    "Water Supply Contamination/Failure": [
+      {
+        "question": "The tap water is off. I have a pool in the backyard, can I drink that water if I boil it?",
+        "answer": "It is recommended to avoid drinking tap water when the tap is turned off."
+      },
+      {
+        "question": "How do I make water from the creek safe to drink? Is just boiling it enough?",
+        "answer": "The most important step in making water from the creek safe todrink is sanitization. To sanitize the water, you can use a water filter or a hand sanitizer that removes the dangerous bacteria and other dangerous things. After sanitizing the water, you can then add salt if needed. If you don't have a filter or sanitizer, you can use your hands to touch the surface of the stream and swipe away any visible dirt or leaves."
+      }
+    ],
+    "Supply Chain Collapse": [
+      {
+        "question": "The shops are all empty. How much food and water does one person actually need per day to survive?",
+        "answer": "The number of meals needed per day to meet basic needs for health and maintenance has been increased to 3."
+      }
+    ]
+  },
+  "Personal/Remote Emergencies": {
+    "Lost in the Wilderness": [
+      {
+        "question": "I'm totally lost in the bush. My phone is dead. Which way do I go? How can I get someone to find me?",
+        "answer": "First, check if you have a cell number on your wallet. If not, try calling 911 or an emergency service using a landline.\n\nNext, it's important to remember that being lost in the wild is dangerous and should be avoided unless you must go there for a specific reason. It's better to find a safe way back home instead of getting trapped in the forest.\n\nIf you do need to stay in the wild, here are some steps you can follow:\n1. Locate the most recent visible sign of human contact or a large body of water.\n2. Mark your route using a map or a device with a GPS. Make sure you have a map that shows distances and directions.\n3. Use a map to identify your current location and find the closest trail or path back home.\n4. If the trail ends before getting to your desired destination, try going in another direction.\n5. You can also search for other people on the trail using a map.\n\nIt's important to note that if you don't have a cell number, it can be hard to get found. In this case, it would be better to call an emergency service or use social media networks such as Facebook and Twitter to contact someone with your location and status.\n\nOverall, while being lost in the wild, it's important to stay safe by following these steps."
+      },
+      {
+        "question": "I'm lost and really thirsty. The only water I can find is a pond that looks pretty gross. Will I get sick if I drink it?",
+        "answer": "The water in the pond would not be dangerous to consume as long as you are not getting any other things into your body."
+      }
+    ],
+    "Vehicle Breakdown in a Remote Area": [
+      {
+        "question": "My car just died in the middle of nowhere. It's hot. Is it smarter to start walking or stay with the car?",
+        "answer": "Stuck in the middle of everywhere?\n\nIt sounds pretty bad. The first step is to get your car off the road.\n\nIf you have any other cars around, try starting them and driving out to help you. Otherwise, if it's hot outside, we recommend getting into an air-conditioned building or a car that's not broken down.\n\nIf there are no other cars available, a safe option would be to call for emergency services like paramedics."
+      }
+    ]
+  },
+  "Health & Medical Emergencies": {
+    "Treating Common Injuries": [
+      {
+        "question": "I cut my arm badly and it's bleeding a lot. How do I stop it? Should I tie something really tight around it?",
+        "answer": "The best way to stop your arm from bleeding a lot is to place a clean cloth in your hand and press down on the arm. This will decrease the amount of blood being released by the blood cells inside your arm."
+      },
+      {
+        "question": "I just spilled boiling water on my hand. It hurts so much. What do I put on it? Is butter a good idea?",
+        "answer": "The only thing that can fully clean hot skin and prevent further damage is coldwater. \n\nTo take care of your hot hand, you can follow these steps:\n\n1. Step 1: Put the hand under running tap water to quickly reduce its temperature.\n2. Step 2: Wrap the hand around a cold object or place it in a freezer for 10 seconds.\n3. Step 3: Apply a non-n greedy antiseptic such as hand sanitizer or handsoap to remove any remaining skin cells and remove the hot feel.\n\nIf you want to add an additional layer of protection, you can apply a non-naturalizer such as aloeleaf leaf extract or a combination of onion and apple slices.\n\nPlease note that if your skin is very sensitive, you may need to avoid using antiseptics and other products."
+      }
+    ],
+    "Handling Common Illnesses": [
+      {
+        "question": "My child has a really high fever and there's no doctor. What can I do to bring the fever down at home?",
+        "answer": "The first step is to check if your child has any other health issues such as a previous condition, an underlying condition like Asthma or heart disease, or a history of migraines.\n\nIf your child does have another health issue, you may need to call 911 and get emergency care. You can also try to determine the cause of the high temperature by checking the consistency of your child's skin (dry or dry skin suggests it’s due to high temperature), checking if there are any rashes on the skin, whether the skin is red, or if it has a bad smell.\n\nIf none of the above conditions are met and if you have a child with no history of health issues, here are some steps you can take:\n\n1. Provide your child with fluid to take in, such as water, orangeade, or any other soft food.\n\n2. Use non-aspecticto achieve a temperature reduction. This means that when the temperature goes up by 10 degrees, reduce it by 5 degrees per hour until the temperature is back to normal.\n\n3. If your child has already taken all their Tylenol and they are still having high temperature, you can use an alternative like homeopathic.\n\n4. Apply a temperature reducer like cold compresses (dampen the skin) on the head and armpits of your child. You can also add an ice pack to the back of your child’s head.\n\n5. If the temperature doesn’t go down within the hour, take your child to the nearest health center or call 911.\n\nNote: Make sure you have a stable bed, a stable source of energy, and a stable source of water for your child."
+      }
+    ]
+  },
+  "Animal & Wildlife Encounters": {
+    "Snake Bite": [
+      {
+        "question": "I think a snake just bit me. What do I do? Should I try to suck the venom out?",
+        "answer": "The snakebiting is indeed one of the most urgent medical emergency situations that can occur. The first step is to make sure your health and safety are safe before anything else. This means running to your nearest doctor's office, or calling an emergency number for help.\n\nYou should immediately stop any movement, as it may be dangerous to run faster when a snake has already entered your skin. In the meantime, you can hold a piece of cloth over the bite site to prevent further contact with the snake.\n\nIf the snakebite is severe, you should make sure you have a good supply of antivenomous treatment on hand. This can include emergency medical kit that contains snakebite injections or antivenomous extracts. You can also use a compressible bandage around the affected area to apply pressure and prevent additional blood flow.\n\nFinally, it is important to keep an eye on your health condition. If you have any severe reactions such as persistent low blood-pressure, persistent high bloodPressure, or persistent changes in your pulse rate, it is time to call 911 for immediate medical treatment."
+      }
+    ],
+    "Shark Attack": [
+      {
+        "question": "My friend was just bitten by a shark and is bleeding badly from their leg. What do I do *right now* to stop the bleeding?",
+        "answer": "The first step is to check if there are any other things that might have caused the bloodloss. This could include cuts or broken bones, so make sure there's nothing else going on.\n\nIf the friend is still in danger of getting attacked by a shark, it is better to take them away from the water.\n\nIf they can't get away, you can use a simple compression wrap around the leg, starting at the top and working your way down. This will stop the blood from streaming out.\n\nIf there are no other things that could be causing the bloodloss, and the friend's blood pressure is normal, you can have them take an Advil or ibU (Ibuprofen) to help with theaches.\n\nFinally, if it's still too much blood, you can call for emergency help."
+      }
+    ],
+    "Marine Stings": [
+      {
+        "question": "I got stung by a jellyfish, it's burning. Does peeing on it actually work?",
+        "answer": "The best way to handle this situations is to remove any items that are in contact with the fish from your body. After removing the fish, you can apply some hot water and salt to your skin to help clear away the remaining salt from the fish. You can also use a non-altering antiseptic like hydrogen peroxide to clean the area as well."
+      }
+    ],
+    "Spider Bite": [
+      {
+        "question": "A big black spider just bit me. How can I tell if it's a bad one? What's the first aid?",
+        "answer": "The big black spider that bit you is a bad one. It’s considered to be the most dangerous type of black.spike found in North America. \n\nTo treat it, first make sure the area of the skin where the蜘蛛bit is is clean and free from other objects like lint or dust.\n\nThen, if the bite is not causing any significant health impact, you can choose to simply allow nature to take care of it by leaving the area and allowing the chance for the body to fully remove the foreign object. This could mean leaving the area and returning later.\n\nIf the skin around the area of thebite is red, swollen, or has severe areas where it has bit, this indicates a more significant reaction. In that case, it would be advisable to call the emergency service at once.\n\nIf you choose to treat the area with antifibrant medication, make sure to check if any other conditions are present in your body. For example, if you have an active joint condition like gout or an active heart condition, it may not be a good idea to use antifibrant medications.\n\nFinally, make sure that you do not perform any actions that could cause additional damage to the area where the animal bit you."
+      }
+    ]
+  },
+  "Extreme & Hypothetical Scenarios": {
+    "Atomic Bomb Attack / Nuclear Fallout": [
+      {
+        "question": "There was a blinding flash and a mushroom cloud far away. What should I do this second? Where do I hide?",
+        "answer": "The flash may have been a result of a lightning strike or a severe headwind. To safely react, follow these steps:\n\n1. If you are outside and the flash is visible, quickly find an area with a stable surface and go there.\n2. If you are inside, move to an area away from where the flash was emitted.\n3. Once inside, open all windows and close them again.\n\nNote: If you are in an area without a stable surface or in deep water, avoid moving as much as possible and stay safe."
+      },
+      {
+        "question": "They're saying on the radio that fallout is coming. What even is that? How do I make my house safe?",
+        "answer": "The term \"fallout\" refers to the release of radioactivity from a weapon or device. To make your house safe, you can follow these steps:\n\n1. Follow instructions for safe behavior in case of an emergency.\n\n2. Get inside and stay there.\n\n3. Open the windows to allow air to enter your home and prevent a build-up of CO2.\n\n4. Make sure that your home has a gas detector to detect any leaks.\n\n5. Close all other windows to avoid further air movement.\n\n6. If there are children in your home, keep them away from the outside of your home.\n\n7. Get your pets inside and keep them away from the outside of your home.\n\n8. Call the appropriate authorities for help or protection.\n\n9. Use a radio or TV to monitor the news and updates from authorities.\n\n10. Wait for instructions.\n\n11. Follow your authorities' directives."
+      }
+    ],
+    "Zombie Apocalypse": [
+      {
+        "question": "Zombies are outside my house. What's the best weapon I can make from regular stuff I have at home?",
+        "answer": "The first step would be to check if there are any visible signs of an attack. If there are no visible signs, you may want to call the local emergency services or contact a friend with more specialized knowledge about how to handle an emergency.\n\nIf there are signs that indicate a potential attack, such as people breaking in through open windows, it's important to take care of your own safety and security before doing anything else. You can use common tools and objects from your home to make a weapon.\n\nOne common tool you can use is a hammer. If you have a hammer, you can use it to hit the head or body of an enemy with the intent of causing them to fall down.\n\nIf you don't have a hammer, you can use other hard objects from your home, such as a brick, a large book, or even a piece of concrete. The key is to make sure that the tool or object is powerful and can cause damage when used correctly.\n\nIn addition to using the right tool, it's important to perform proper technique and avoid applying unnecessary force to ensure safety. For example, if you use a hammer to hit an enemy, you don't want to break their head. Similarly, make sure that you are not using a weapon in a way that could cause your own safety.\n\nOverall, while the actual implementation of what weapons to use will depend on the context and environment, making a weapon from common stuff at home can be a useful tool for emergency situations."
+      },
+      {
+        "question": "Where's the best type of place to hide out to survive a zombie apocalypse long-term?",
+        "answer": "The best type of place to hide out in a hypothetical zoo scenario would be a stable, populated area that is free from external factors like traffic, vehicles, and other potential danger sources. The most suitable location for hiding out in this scenario would be an enclosed area within the zoo itself. This can include areas such as an observatory, a large field, or even an empty building with a closed gate."
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model_name": "smollm2-1.7b-instruct@q8_0",
+  "model_id": "smollm2-1.7b-instruct@q8_0",
+  "model_publisher": "lmstudio-community",
+  "model_arch": "llama",
+  "model_quantization": "Q8_0",
+  "model_file_path": "C:\\Users\\akona\\.lmstudio\\models\\lmstudio-community\\SmolLM2-1.7B-Instruct-GGUF\\SmolLM2-1.7B-Instruct-Q8_0.gguf",
+  "model_size_bytes": 1820414656,
+  "model_size_gb": 1.6953932642936707,
+  "hf_repo": null,
+  "hf_size_gb": null,
+  "lm_studio_api_url": "http://localhost:1234/v1/chat/completions",
+  "questions_count": 32,
+  "started_at": "2025-10-12T07:22:46",
+  "finished_at": "2025-10-12T07:24:58",
+  "duration_seconds": 131,
+  "duration_mmss": "02:11",
+  "results_file": "test_results\\2025-10-11_1\\smollm2-1.7b-instruct-q8_0_2025-10-12_07-24-58.json",
+  "model_info_from_response": null
+}
